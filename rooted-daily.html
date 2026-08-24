@@ -1,0 +1,2497 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooted Daily — I Don't Have Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #f7f5f9;
+      --card-bg: #ffffff;
+      --accent-purple: #7d6396;
+      --accent-hover: #6a5281;
+      --text-dark: #2d2b30;
+      --text-muted: #6e6a75;
+      --border-color: #e6dfec;
+      --light-purple: #f3eff7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+
+    .app-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      width: 100%;
+      max-width: 620px;
+      border: 1px solid var(--border-color);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: var(--accent-purple);
+    }
+
+    .archive-link {
+      background: none;
+      border: none;
+      color: var(--accent-purple);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .meta-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .day-badge {
+      background-color: var(--light-purple);
+      color: var(--accent-purple);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .date-display { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+
+    .landing-headline { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
+    .landing-subtitle { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; }
+
+    .bullet-list { list-style: none; margin-bottom: 2.5rem; text-align: left; display: inline-block; }
+    .bullet-list li { font-size: 1rem; color: var(--text-dark); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .bullet-list li::before { content: "•"; color: var(--accent-purple); font-weight: bold; font-size: 1.2rem; }
+
+    .btn-primary {
+      background-color: var(--accent-purple);
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      max-width: 320px;
+    }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent-purple);
+      border: 1px solid var(--accent-purple);
+      border-radius: 30px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .scripture-box {
+      font-family: 'Newsreader', serif;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+    .scripture-ref { display: block; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.9rem; font-weight: 600; color: var(--accent-purple); margin-top: 0.5rem; }
+
+    .devo-body { font-size: 0.98rem; line-height: 1.8; color: var(--text-dark); text-align: left; margin-bottom: 2rem; }
+    .devo-body p { margin-bottom: 1.25rem; }
+
+    .reflection-box { background-color: var(--light-purple); border-radius: 12px; padding: 1.25rem; text-align: left; margin-bottom: 2rem; }
+    .reflection-title { font-weight: 700; font-size: 0.85rem; color: var(--accent-purple); margin-bottom: 0.5rem; text-transform: uppercase; }
+
+    .archive-item {
+      background: var(--light-purple);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      text-align: left;
+      cursor: pointer;
+    }
+    .archive-item:hover { border: 1px solid var(--accent-purple); }
+    .archive-day { font-weight: 700; color: var(--accent-purple); font-size: 0.85rem; }
+    .archive-title { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-top: 0.2rem; }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <main class="app-card">
+    <div class="nav-header">
+      <h1 class="brand-title">Rooted Daily</h1>
+      <button class="archive-link" onclick="showArchive()">Past Devotionals</button>
+    </div>
+
+    <div id="screen-landing">
+      <h2 class="landing-headline">You said you don't have time.</h2>
+      <p class="landing-subtitle">So let's start with five minutes.</p>
+      <ul class="bullet-list">
+        <li>No complicated study</li>
+        <li>No 45-minute quiet time</li>
+        <li>No catching up when you miss a day</li>
+      </ul>
+      <p style="margin-bottom: 1.5rem; font-weight: 500; color: var(--text-muted);">
+        Just God's Word and five minutes with Him.<br>Ready?
+      </p>
+      <button class="btn-primary" onclick="startFiveMinutes()">START TODAY'S 5 MINUTES</button>
+    </div>
+
+    <div id="screen-devo" class="hidden">
+      <div class="meta-bar">
+        <span class="day-badge" id="devo-day-label">DAY 1</span>
+        <span class="date-display" id="devo-date-label"></span>
+      </div>
+
+      <div class="scripture-box">
+        "<span id="devo-scripture-text"></span>"
+        <span class="scripture-ref" id="devo-scripture-ref"></span>
+      </div>
+
+      <div class="devo-body" id="devo-content"></div>
+
+      <div class="reflection-box">
+        <div class="reflection-title">Short Prayer &amp; Reflection</div>
+        <div class="reflection-text" id="devo-prayer"></div>
+      </div>
+
+      <button class="btn-primary" id="devo-complete-btn" onclick="completeToday()">COMPLETE</button>
+    </div>
+
+    <div id="screen-complete" class="hidden">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🌱</div>
+      <h2 class="landing-headline">You showed up today.</h2>
+      <p class="landing-subtitle" style="margin-bottom: 1rem;">
+        Come back tomorrow for your next five minutes.<br>
+        No streaks to keep. No debt to pay.
+      </p>
+      <button class="btn-secondary" onclick="skipAhead()">I have extra time today → Read Next</button>
+    </div>
+
+    <div id="screen-archive" class="hidden">
+      <h2 class="landing-headline" style="margin-bottom: 1.5rem;">Past Devotionals</h2>
+      <div id="archive-list"></div>
+      <button class="btn-secondary" onclick="showScreen('screen-landing')">← Back to Main</button>
+    </div>
+
+    <div id="screen-milestone-90" class="hidden">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+      <h2 class="landing-headline">You made it!</h2>
+      <p class="landing-subtitle" style="margin-bottom: 1.5rem;">
+        You've spent 90 days making room for God's Word.<br>
+        But we're not stopping here...
+      </p>
+      <button class="btn-primary" onclick="skipAhead()">BONUS: 10 Extra Devotionals</button>
+    </div>
+
+    <div id="screen-milestone-100" class="hidden">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+      <h2 class="landing-headline" style="margin-bottom: 1.5rem;">You Made It to Day 100!</h2>
+      <div class="devo-body" style="text-align:left;">
+        <p><strong>You made it!</strong></p>
+        <p>I hope somewhere along these 100 days, you discovered something I had to discover for myself: maybe you really do have time.</p>
+        <p>For years, I told myself I didn't have enough time to read and study the Bible. There was always something else to do, something that needed my attention, or some reason why I would start tomorrow.</p>
+        <p>But when I started cutting out the things that were constantly taking my time&mdash;especially TV and mindless phone scrolling&mdash;I realized something.</p>
+        <p>I had more time than I thought I did.</p>
+        <p>And for the first time in my life, I actually read and studied through the entire Bible in a year.</p>
+        <p>Not because I suddenly had an extra three hours every morning.</p>
+        <p>I just started making God's Word a priority.</p>
+        <p>Maybe these five-minute devotionals helped you do the same.</p>
+        <p>Maybe five minutes became ten. Maybe ten became twenty. Maybe you simply learned to put down your phone for a few minutes and open your Bible instead.</p>
+        <p>Whatever it looks like for you, I hope you keep going.</p>
+        <p>These devotionals were adapted from my writing ministry, Holy Parables, where I write relatable, sometimes humorous, Scripture-centered devotionals and stories to encourage us to take our faith seriously without taking ourselves too seriously. 😂</p>
+        <p>If you enjoyed these, you can continue reading a new Holy Parables devotional every Wednesday over on <a href="https://www.patreon.com/c/holyparables" target="_blank" rel="noopener" style="color: var(--accent-purple); font-weight: 600;">Patreon</a>.</p>
+        <p>And if you would like me to make another I Don't Have Time devotional, let me know over at Holy Parables! Your feedback will help me know if there's a need for another 100 days.</p>
+        <p>And finally...</p>
+        <p>If you noticed a Scripture repeated somewhere along the way, I'm sorry. 😂</p>
+        <p>Keeping track of 100 different verses is harder than it sounds!</p>
+        <p>But honestly?</p>
+        <p>Maybe that's not the worst thing.</p>
+        <p>There are some Scriptures we probably need to read more than once anyway.</p>
+        <p>Some truths are worth repeating.</p>
+        <p>Thank you for spending these 100 days with me.</p>
+        <p>Now go open your Bible.</p>
+        <p>You might have more time than you think. ❤️</p>
+        <p style="margin-top: 1.5rem;">&mdash; Ebony<br>Holy Parables</p>
+      </div>
+      <button class="btn-secondary" onclick="showArchive()">Revisit Past Devotionals</button>
+    </div>
+  </main>
+
+  <script>
+    const devotionals = [
+      {
+        id: 1,
+        scripture: "The Kingdom of Heaven is like a grain of mustard seed, which a man took and sowed in his field.",
+        ref: "Matthew 13:31",
+        paragraphs: [
+          "We have a funny way of deciding whether something is worth doing. If we can't do it properly, completely, and preferably with a cute little planner beside us, we decide we might as well not do it at all. We do this with exercise, cleaning, eating healthy, and—if we're being honest—time with God. If we can't sit down for an uninterrupted hour with our Bible, journal, coffee, commentary, and absolutely no one asking us where their socks are, we figure we'll just try again tomorrow. Tomorrow, of course, is very busy too.",
+          "But Jesus didn't compare the Kingdom of Heaven to something enormous that appeared fully grown overnight. He compared it to a mustard seed. Tiny. Easy to overlook. Not exactly impressive if you were standing in the garden deciding which plant deserved the most attention.",
+          "That's what I love about this passage when we're tempted to think our five minutes don't matter. Five minutes may feel small. It may not look like the quiet time you imagined you'd have when you were spiritually mature and apparently living in a cottage with no laundry. But small does not mean meaningless.",
+          "A few minutes in God's Word can put truth in your mind before the day's noise starts fighting for it. A verse can come back to you while you're washing dishes. A sentence can change the way you answer your child. A truth you read this morning can keep you from believing the lie your emotions are shouting at you this afternoon.",
+          "Don't despise the small beginning. Open your Bible. Read the passage. Pray. Let God decide what He will grow from the little seed you planted today."
+        ],
+        prayer: "Lord, help me stop believing that small means insignificant. Take these few minutes and use them to plant Your Word deeply in me. Help me faithfully come to You, even when life is busy. Amen."
+      },
+      {
+        id: 2,
+        scripture: "Consider the lilies of the field, how they grow: they neither toil nor spin.",
+        ref: "Matthew 6:28",
+        paragraphs: [
+          "Some mornings we don't even need an alarm clock to wake us up. Our brains are already holding a staff meeting before our feet hit the floor. Did I answer that email? What are we eating tonight? Did I pay that bill? Why is the house already messy? What was that thing I was supposed to remember? And somewhere in the middle of all of that, we remember that we were supposed to spend time with God.",
+          "Then comes the guilt. Because apparently we think God is sitting there with a clipboard waiting to mark down whether we completed our spiritual assignment on time.",
+          "But look at what Jesus does in Matthew 6. He points anxious people toward flowers. Not scholars. Not productivity experts. Flowers. They don't spend their days worrying about whether they are doing enough. They grow where God planted them and receive what He provides.",
+          "That doesn't mean we're supposed to become irresponsible and stop doing the things God has given us to do. It means we stop carrying responsibilities that belong to Him. We can make breakfast without carrying tomorrow. We can homeschool without worrying about every possible future outcome. We can wash the same cup for the fourth time without wondering if our entire life is somehow behind.",
+          "And we can sit with God's Word without turning our quiet time into another performance. You aren't here to impress Him. You aren't trying to earn His love. You're coming because He is your Father, and His Word is good for your soul.",
+          "So breathe. Put down the mental clipboard. For these few minutes, simply receive. Read what He has said. Let Him remind you who He is. Then go back into your day with the confidence that you don't have to carry tomorrow today."
+        ],
+        prayer: "Father, quiet the anxious noise in my mind. Help me receive Your Word today without turning my time with You into another performance. Teach me to trust You with what I cannot control. Amen."
+      },
+      {
+        id: 3,
+        scripture: "The kingdom of heaven is like leaven, which a woman took and hid in three measures of meal, till it was all leavened.",
+        ref: "Matthew 13:33",
+        paragraphs: [
+          "I think we would all like spiritual growth to come with a progress bar. Imagine opening your Bible and seeing: 'Congratulations! Your patience has increased 14 percent.' Then you could finally know that yesterday's prayer worked. Unfortunately, sanctification does not come with an app notification.",
+          "Sometimes you spend time in God's Word and walk away feeling like something profound happened. Other times you close your Bible and think, 'Well...I read it.' You don't feel different. The laundry still needs to be done. Your child is still asking the same question for the seventeenth time. Your husband still has the ability to leave a cabinet door open. Nothing appears dramatically transformed.",
+          "But Jesus compares the Kingdom to leaven. Yeast works quietly. You don't sit there staring at the dough thinking, 'Come on, yeast. I need visible results.' You mix it in and let it work.",
+          "God's Word often works that way in us. A verse gets stored away in your mind. A truth sits quietly in your heart. Then later, when you're tempted to respond in anger, that verse comes back. When fear starts taking over, something you read reminds you who God is. When you're tempted to complain, you remember something Christ has already taught you.",
+          "You may not see the growth immediately because you're standing inside the process. But that doesn't mean God isn't working.",
+          "So don't measure today's time with God only by how you felt when you closed your Bible. You came. You listened. You received His Word. Trust Him with what happens next."
+        ],
+        prayer: "Lord, thank You that Your Word is working even when I cannot see the results. Help me trust Your quiet work in me and remain faithful to You when growth feels slow. Amen."
+      },
+      {
+        id: 4,
+        scripture: "The kingdom of heaven is like treasure hidden in a field, which a man found and covered up.",
+        ref: "Matthew 13:44",
+        paragraphs: [
+          "We are remarkably good at finding time for things we think are important. If something matters enough, suddenly we become very creative. We will squeeze in one more episode even though we're tired. We will scroll for twenty minutes while insisting we only opened the app for a second. We will research a purchase we haven't even decided to make as if our future depends on knowing the complete history of the product.",
+          "But then we look at our Bible and say, 'I just don't have time.'",
+          "Jesus tells a story about a man who finds treasure hidden in a field. When he realizes what he has found, he doesn't respond with, 'Wow, that's really valuable. Unfortunately, I'm pretty busy this week.' He joyfully rearranges his priorities because he has discovered something worth having.",
+          "The problem isn't always that we don't have time. Sometimes our priorities reveal what we believe is valuable.",
+          "That's uncomfortable, but it's also hopeful. We don't have to spend the rest of our lives feeling guilty about our schedules. We can ask a better question: Do I really believe that time with Christ is treasure?",
+          "Because if He is treasure, then five minutes isn't an annoying interruption to our day. It's an opportunity. It's a chance to sit with the One who made us, saved us, knows us completely, and still invites us near.",
+          "Today, don't approach your Bible like another obligation waiting to be checked off. Come looking for treasure."
+        ],
+        prayer: "Jesus, forgive me for treating time with You as an obligation when You are the greatest treasure. Give me eyes to see the value of Your Word and a heart that gladly makes room for You. Amen."
+      },
+      {
+        id: 5,
+        scripture: "The Lord is my shepherd; I shall not want. He makes me lie down in green pastures.",
+        ref: "Psalm 23:1-2",
+        paragraphs: [
+          "There are days when my body is sitting down but my brain is still running laps. I can be on the couch and mentally reorganizing the entire house. I can be in bed and suddenly remember something that happened six years ago that I should have handled differently. Apparently my brain has decided bedtime is the perfect opportunity for a retrospective documentary.",
+          "David says, 'He makes me lie down in green pastures.' There is something comforting about that word: makes. Because sometimes we need help stopping.",
+          "The Shepherd knows His sheep need rest. He knows when they are hungry, frightened, scattered, and exhausted. He doesn't expect them to figure everything out themselves before He cares for them.",
+          "Maybe today your five minutes can be a tiny green pasture. Not because five minutes will solve every problem in your life, but because you can stop long enough to remember that you are not the shepherd. You were never supposed to be.",
+          "You don't have to solve every problem before breakfast. You don't have to know how every situation will turn out. You don't have to carry everyone else's emotions. Your Shepherd is still watching.",
+          "Read Psalm 23 slowly today. Let yourself notice what God does. He leads. He restores. He protects. He provides. He walks with you.",
+          "And when you finish, get up and continue your day—but don't forget who is carrying the staff."
+        ],
+        prayer: "Good Shepherd, thank You for caring for me when I am tired and overwhelmed. Help me lay down what I was never meant to carry and trust You to lead me today. Amen."
+      },
+      {
+        id: 6,
+        scripture: "Abide in me, and I in you. As the branch cannot bear fruit by itself, unless it abides in the vine, neither can you, unless you abide in me.",
+        ref: "John 15:4",
+        paragraphs: [
+          "Have you ever tried to make yourself be patient? You know the feeling. You're already irritated, someone keeps talking, and internally you're chanting, 'I am a patient woman. I am a patient woman. I am a patient woman.' Meanwhile, your tone of voice is giving a completely different testimony.",
+          "Jesus gives us a much better picture of spiritual growth. He doesn't tell the branch to try harder to produce grapes. He tells it to abide in the vine.",
+          "A branch doesn't wake up every morning and panic about whether it is producing enough fruit. It doesn't grit its teeth and say, 'Today I am going to make myself become a grape.' It stays connected to the vine.",
+          "That's what abiding means. We stay connected to Christ. We receive from Him. We listen to Him. We depend on Him. And His life produces fruit in us.",
+          "Sometimes we approach Christianity like a self-improvement project. I need to be more patient. I need to be kinder. I need to complain less. I need to stop losing my temper. All true. But we cannot manufacture Christlike character simply by yelling at ourselves harder.",
+          "We need Christ.",
+          "Your time in God's Word today isn't another exercise in trying to become a better version of yourself. It's time spent staying connected to the One who actually transforms you.",
+          "So abide. Open His Word. Listen. Pray. Then walk into your day dependent on Him rather than determined to do everything in your own strength."
+        ],
+        prayer: "Jesus, I cannot produce Your character in myself. Help me abide in You today and depend on Your strength instead of my own. Produce in me the fruit that I cannot manufacture. Amen."
+      },
+      {
+        id: 7,
+        scripture: "Jesus said to her, 'Everyone who drinks of this water will thirst again, but whoever drinks of the water that I will give him will never be thirsty forever.'",
+        ref: "John 4:13-14",
+        paragraphs: [
+          "Have you ever opened your phone because you were bored, only to look up twenty minutes later and wonder what exactly just happened? You didn't need anything. You weren't even looking for anything. Somehow you watched a stranger organize a refrigerator, read three opinions about something you didn't care about, and ended up emotionally invested in a disagreement between people you've never met.",
+          "And somehow we're still thirsty.",
+          "Jesus meets a woman at a well who has spent years trying to find satisfaction in places that could never give it. He tells her about living water—not another temporary fix, but something that reaches deeper.",
+          "We do the same thing in smaller ways. We reach for food when we're emotionally empty. We reach for our phones when we're restless. We reach for entertainment when we're tired. We reach for approval when we're insecure. None of those things are necessarily evil. But none of them can satisfy the deepest thirst in us.",
+          "Sometimes the reason we don't make time for God's Word isn't simply that we're busy. We're filling our attention with other things first.",
+          "Five minutes with Jesus won't magically make every problem disappear. But it can remind your soul where its satisfaction actually comes from.",
+          "Today, before you reach for the thing you normally use to numb, distract, or entertain yourself, ask: 'What am I actually thirsty for?' Then bring that thirst to Christ."
+        ],
+        prayer: "Jesus, You know the places where I keep looking for satisfaction that only You can provide. Teach me to bring my thirst to You instead of constantly reaching for temporary substitutes. Amen."
+      },
+      {
+        id: 8,
+        scripture: "But the Lord answered her, 'Martha, Martha, you are anxious and troubled about many things, but one thing is necessary.'",
+        ref: "Luke 10:41-42",
+        paragraphs: [
+          "Martha gets a lot of sympathy from me because she was doing what many of us do best: getting things done while quietly becoming irritated that nobody else seems to be getting things done.",
+          "You know the feeling. You're cleaning. You're cooking. You're organizing. You're remembering what everyone else forgot. Meanwhile, someone is sitting peacefully in the other room and you are thinking, 'Must be nice.'",
+          "Martha wasn't doing something bad. She was serving Jesus. That's what makes the story uncomfortable. We can be doing good things and still be distracted from the better thing.",
+          "Jesus doesn't condemn her for serving. He lovingly points out that she is anxious and troubled about many things.",
+          "That phrase sounds remarkably modern.",
+          "Many things. So many things. The list never ends. There will always be another load of laundry, another email, another appointment, another meal, another thing that needs cleaning. If we wait until everything is finished before we sit with Jesus, we're going to be waiting forever.",
+          "Mary chose to sit at Jesus' feet and listen. There was work to be done, but she recognized that Jesus Himself was worth stopping for.",
+          "Today, don't wait until your list is empty. It won't be. Put down the mental to-do list for a few minutes and sit with the Lord.",
+          "The dishes will still be there when you're finished. Sadly."
+        ],
+        prayer: "Lord, forgive me for allowing good responsibilities to crowd You out. Help me recognize what is truly necessary and choose time with You even when my to-do list is still waiting. Amen."
+      },
+      {
+        id: 9,
+        scripture: "But when he saw the wind, he was afraid, and beginning to sink he cried out, 'Lord, save me.'",
+        ref: "Matthew 14:30",
+        paragraphs: [
+          "Peter was doing something most of us would probably consider an excellent reason to panic: he was walking on water. And while he was looking at Jesus, he was fine. Then he noticed the wind.",
+          "Isn't that how life works? We're okay until we start looking around.",
+          "We're trusting God until we check the bank account. We're content until we see someone else's vacation. We're confident until we hear someone else's opinion. We're peaceful until we start imagining every possible way tomorrow could go wrong.",
+          "Peter didn't suddenly discover that the storm existed. The storm was already there. What changed was what he was looking at.",
+          "We can do the same thing with our days. The circumstances may not change when we open God's Word. The bills are still there. The difficult conversation is still coming. The child may still be having a difficult day. But Scripture turns our attention back toward Christ.",
+          "Jesus doesn't tell Peter, 'You should have been stronger.' Peter cried out, and Jesus immediately reached for him.",
+          "Sometimes your five minutes today are less about learning something new and more about looking at the right Person again.",
+          "What are you staring at today? The wind? The waves? The worst-case scenario? Or Jesus?"
+        ],
+        prayer: "Jesus, when I become distracted by the storms around me, turn my eyes back toward You. Help me trust You even when my circumstances haven't changed. Amen."
+      },
+      {
+        id: 10,
+        scripture: "What man of you, having a hundred sheep, if he has lost one of them, does not leave the ninety-nine in the open country, and go after the one that is lost?",
+        ref: "Luke 15:4",
+        paragraphs: [
+          "There is something both comforting and slightly embarrassing about being the sheep in Jesus' story. Sheep aren't exactly famous for their impressive decision-making skills. They wander. They get distracted. They somehow find themselves in places they shouldn't be.",
+          "Relatable.",
+          "The shepherd doesn't look at the lost sheep and say, 'Well, that's what you get.' He goes after it.",
+          "There are days when we wander spiritually too. We don't decide, 'I'm going to neglect God for the next two weeks.' It usually happens much more quietly. One busy morning becomes three. Three becomes a week. We start scrolling more, praying less, and eventually realize we haven't opened our Bible in a while.",
+          "Then comes the shame: 'I should be better than this.'",
+          "But shame doesn't draw us back to Christ. The Shepherd does.",
+          "The point of this parable isn't that wandering doesn't matter. It matters enough for the shepherd to go looking. But it also shows us the heart of God toward the wandering.",
+          "So if you've been away, come back. You don't need a dramatic restart. You don't need to make twelve promises about how tomorrow will be different. Open the Word today.",
+          "The Shepherd isn't standing on the hill shaking His head. He is calling you home."
+        ],
+        prayer: "Father, thank You for pursuing me when I wander. Give me humility to recognize when I have drifted and courage to simply come back to You today. Amen."
+      },
+      {
+        id: 11,
+        scripture: "And he arose and came to his father. But while he was still a long way off, his father saw him and felt compassion, and ran and embraced him.",
+        ref: "Luke 15:20",
+        paragraphs: [
+          "The prodigal son story is one of those passages we can hear so often that we forget how shocking it is. A son takes his inheritance, leaves home, wastes what he was given, and eventually ends up desperate enough to consider eating the food meant for pigs.",
+          "Then he comes home.",
+          "He rehearses his speech. He has already decided what he deserves. He knows he messed up. He knows he has no right to demand anything. He is prepared to negotiate his way into being a servant.",
+          "But the father sees him while he is still far away and runs toward him.",
+          "How often do we approach God like the son approached his father? We know we have sinned, so we think we need to clean ourselves up before we come near. We wait until we have prayed enough, done better, or gotten our emotions under control.",
+          "But repentance doesn't mean hiding until we're respectable. It means turning around and coming home.",
+          "Maybe you've spent time away from God's Word because you're ashamed of something. Maybe you've been avoiding prayer because you know exactly what you need to confess. Don't let shame keep you farther away from the One you need most.",
+          "Come home.",
+          "The Father already knows what happened. He isn't waiting for you to surprise Him with your confession."
+        ],
+        prayer: "Father, thank You that I can come to You honestly. Help me stop hiding behind shame and turn toward You when I sin. Thank You for Your mercy and grace through Christ. Amen."
+      },
+      {
+        id: 12,
+        scripture: "And he called his disciples to him and said to them, 'Truly, I say to you, this poor widow has put in more than all of those who are contributing to the offering box.'",
+        ref: "Mark 12:43",
+        paragraphs: [
+          "We live in a world that loves impressive numbers. Bigger is better. More followers. More money. More accomplishments. More productivity. More books read. More chapters completed. More days in a streak.",
+          "Even Bible reading can become a numbers game.",
+          "Then Jesus notices a widow who puts two tiny coins into the offering box. To everyone else, it looks insignificant. Jesus sees something completely different.",
+          "She gave what she had.",
+          "That should encourage the woman who feels like what she can offer God is small. Maybe you don't have an hour this morning. Maybe you have a baby sleeping on your chest. Maybe you're exhausted. Maybe you only have a few quiet minutes before the house wakes up.",
+          "God is not impressed by the appearance of our productivity. He sees the heart.",
+          "This doesn't mean we should use busyness as an excuse to never seek God. It means we don't need to compare our spiritual lives to somebody else's.",
+          "Maybe another woman has an hour every morning. Praise God. Maybe you have fifteen minutes. Be faithful with those fifteen minutes.",
+          "Don't spend your five minutes wishing you had someone else's twenty. Give God what you have today."
+        ],
+        prayer: "Lord, keep me from comparing my walk with You to anyone else's. Help me faithfully give You what I have today instead of despising what feels small. Amen."
+      },
+      {
+        id: 13,
+        scripture: "And he told them a parable to the effect that they ought always to pray and not lose heart.",
+        ref: "Luke 18:1",
+        paragraphs: [
+          "We are very good at praying for something and then checking whether God has answered yet. We pray, 'Lord, please help with this situation,' and approximately eleven minutes later our brains start asking, 'So...what are we doing about this?'",
+          "We like quick answers. God often works on a different timetable.",
+          "Jesus tells his disciples a story about a persistent widow who keeps bringing her request. She doesn't give up because the answer hasn't arrived yet.",
+          "Persistent prayer isn't about trying to wear God down. It is about continuing to bring our hearts before Him because we trust that He hears us.",
+          "Sometimes we stop praying because we assume nothing is happening. But prayer isn't wasted simply because the answer isn't visible.",
+          "Maybe there is something you've prayed about so many times that you're tired of hearing yourself say it. Bring it again.",
+          "Maybe you've stopped praying for your child, your marriage, your friend, your circumstances, or your own heart because nothing seems different.",
+          "Don't lose heart.",
+          "Your job isn't to control the answer. Your job is to keep bringing yourself and your requests before the Father."
+        ],
+        prayer: "Father, teach me to pray without losing heart. Help me trust Your wisdom and timing even when I cannot see what You are doing. Amen."
+      },
+      {
+        id: 14,
+        scripture: "But a Samaritan, as he journeyed, came to where he was, and when he saw him, he had compassion.",
+        ref: "Luke 10:33",
+        paragraphs: [
+          "It's easy to love people in theory. In theory, I am extremely patient. In theory, I never interrupt. In theory, I am happy to serve whenever anyone needs me. In reality, put me in traffic behind someone driving twelve miles under the speed limit and suddenly I discover areas of my heart that still need sanctification.",
+          "The Good Samaritan didn't love in theory. He saw a hurting person and stopped.",
+          "Stopping is hard because stopping costs something. It costs time. It costs convenience. It may interrupt whatever we had planned.",
+          "Sometimes we're so focused on getting through our day that we don't notice the people God has put directly in front of us.",
+          "The point isn't that we should say yes to every request or become exhausted trying to save everyone. Only Christ can save. But we should be willing to notice.",
+          "Your time with God should not make you less attentive to people. It should make you more like Jesus toward them.",
+          "Maybe today's application isn't another task. Maybe it's simply paying attention. Listen to the person who needs to talk. Help without announcing it. Show patience when you don't feel like it.",
+          "The five minutes you spend with God are meant to spill into the rest of your day."
+        ],
+        prayer: "Jesus, make me attentive to the people around me. Give me compassion that isn't dependent on convenience and help me love others because You have first loved me. Amen."
+      },
+      {
+        id: 15,
+        scripture: "And they woke him and said to him, 'Teacher, do you not care that we are perishing?' And he awoke and rebuked the wind and said to the sea, 'Peace! Be still!'",
+        ref: "Mark 4:38-39",
+        paragraphs: [
+          "The disciples were in a boat during a storm, and Jesus was asleep. Imagine being in the middle of a terrifying storm, watching the boat fill with water, and looking over to see Jesus taking a nap.",
+          "I think I would have questions.",
+          "They wake Him up with the spiritual equivalent of, 'Jesus! Are You seriously sleeping right now?!'",
+          "And don't we do the same thing? When life gets scary, we assume God's silence means God's absence. If He isn't changing the situation immediately, we wonder whether He sees us at all.",
+          "But Jesus was in the boat the entire time.",
+          "The storm did not mean they had been abandoned.",
+          "Sometimes God's Word doesn't immediately calm the storm around us. Sometimes it calms us by reminding us who is in the boat.",
+          "Your circumstances may still be uncertain when you finish these five minutes. The doctor's appointment may still be coming. The financial problem may still exist. The relationship may still be difficult.",
+          "But Jesus has not left the boat.",
+          "Read the passage today and pay attention not only to what Jesus does to the storm, but to who Jesus reveals Himself to be in the middle of it."
+        ],
+        prayer: "Jesus, when I feel afraid or forgotten, remind me that You are with me. Help me trust Your presence even when You haven't changed my circumstances yet. Amen."
+      },
+      {
+        id: 16,
+        scripture: "As for what was sown among thorns, this is the one who hears the word, but the cares of the world and the deceitfulness of riches choke the word.",
+        ref: "Matthew 13:22",
+        paragraphs: [
+          "There are some mornings when I sit down to read my Bible and suddenly remember approximately forty-seven things I need to do. The funny thing is, I could have been thinking about none of them five minutes earlier. But apparently opening my Bible sends a signal to my brain: 'Quick! Remember every responsibility you've ever had.'",
+          "Jesus warns about the thorns that grow up and choke the Word. He specifically mentions the cares of the world.",
+          "The problem isn't always that we're doing terrible things. Sometimes we're simply crowded.",
+          "Our attention is crowded. Our schedules are crowded. Our minds are crowded. Our phones are crowded with notifications, opinions, videos, messages, and approximately six hundred things we did not ask to know.",
+          "The Word is being planted, but the thorns are competing for room.",
+          "So maybe part of making time for God isn't finding more time. Maybe it's removing something.",
+          "Put the phone in another room. Turn off the notifications. Close the laptop. Tell yourself that the email can survive another ten minutes.",
+          "The world will always have something to say. God's Word deserves a chance to speak first."
+        ],
+        prayer: "Lord, show me the things crowding Your Word out of my attention. Give me courage to remove distractions and wisdom to protect the time I have with You. Amen."
+      },
+      {
+        id: 17,
+        scripture: "Jesus said to them, 'I am the bread of life; whoever comes to me shall not hunger, and whoever believes in me shall never thirst.'",
+        ref: "John 6:35",
+        paragraphs: [
+          "There are two kinds of hunger. There's the normal kind where your stomach makes an announcement loud enough for everyone in the room to hear. Then there's the deeper kind—the restless feeling that something is missing even though you've consumed plenty.",
+          "We are constantly consuming. Content. News. Entertainment. Opinions. Shopping links. Podcasts. Food. More content. We can fill an entire day with things and still go to bed feeling spiritually empty.",
+          "Jesus calls Himself the Bread of Life.",
+          "Bread is ordinary, necessary, and meant to nourish. Jesus isn't offering another interesting thing to add to our lives. He is telling us where true life is found.",
+          "Sometimes we wonder why we feel spiritually hungry when we've been feeding on everything except God's Word.",
+          "You can't live on spiritual junk food and expect your soul to feel healthy.",
+          "So today, come hungry. Don't worry about whether you have enough time to consume an entire chapter or complete a study guide. Open Scripture and receive what God has given you.",
+          "Then notice what happens when you stop trying to satisfy your deepest hunger with things that were never designed to satisfy it."
+        ],
+        prayer: "Jesus, You are the Bread of Life. Forgive me for trying to satisfy my heart with things that cannot nourish it. Teach me to hunger for You and Your Word. Amen."
+      },
+      {
+        id: 18,
+        scripture: "Therefore take up the whole armor of God, that you may be able to withstand in the evil day.",
+        ref: "Ephesians 6:13",
+        paragraphs: [
+          "Nobody would willingly walk into a storm wearing flip-flops, carrying an umbrella with three broken spokes, and say, 'I think I'm prepared.' Yet spiritually, we sometimes wake up and walk straight into the day without giving any thought to what we're about to face.",
+          "Then we're shocked when temptation comes, frustration hits, fear rises, and our patience disappears somewhere around 9:17 a.m.",
+          "Paul tells believers to put on the armor of God. Notice that armor is something you put on before battle, not after you've already been knocked over.",
+          "Time in Scripture helps us remember truth before we need it. We learn who God is before fear tells us something different. We remember His promises before circumstances start shouting. We know the gospel before shame starts making accusations.",
+          "This doesn't mean reading your Bible gives you a magical force field where nothing difficult happens. It means you enter the day grounded in truth instead of letting every emotion become your authority.",
+          "So before you step into today's battles—whatever they may be—take a few minutes to put your mind in the right place.",
+          "You may still get irritated. Someone may still spill something. Your plans may still fall apart.",
+          "But you won't be walking into the day spiritually barefoot."
+        ],
+        prayer: "Lord, prepare me for today. Help me know Your truth so well that I recognize lies when they come. Teach me to put on the armor You have provided and stand firm in You. Amen."
+      },
+      {
+        id: 19,
+        scripture: "Let us also lay aside every weight, and sin which clings so closely, and let us run with endurance the race that is set before us, looking to Jesus.",
+        ref: "Hebrews 12:1-2",
+        paragraphs: [
+          "Imagine deciding to run a race while carrying a laundry basket, your phone charger, three books, a coffee mug, and a bag of things you may or may not need someday. You could technically run. It just wouldn't be particularly enjoyable.",
+          "That's how some of us approach the Christian life. We know we're supposed to run with endurance, but we're carrying every distraction, worry, comparison, resentment, and unnecessary commitment we've collected along the way.",
+          "Hebrews tells us to lay aside every weight—not just obvious sins, but anything that slows us down or drains our spiritual strength.",
+          "And how do we do that? By looking to Jesus. We don't fix our eyes on how heavy our load feels or how far behind we think we are; we keep our eyes fixed on the One who initiated and finishes our faith.",
+          "Today's five minutes are a chance to set down what you were never meant to carry so you can run freely with Him."
+        ],
+        prayer: "Jesus, show me the unnecessary weights I am holding onto today. Help me set them down at Your feet and keep my eyes fixed on You as I run today's race. Amen."
+      },
+      {
+        id: 20,
+        scripture: "But Mary treasured up all these things, pondering them in her heart.",
+        ref: "Luke 2:19",
+        paragraphs: [
+          "We have become remarkably uncomfortable with quiet. If there is a spare thirty seconds in the day, we reach for our phones. Waiting in line? Phone. Sitting in the car? Phone. Waiting for the microwave? Phone. The microwave hasn't even finished the countdown and somehow we've already opened three apps.",
+          "Mary gives us a different picture. She treasured things. She pondered them in her heart.",
+          "Pondering isn't exactly a word we use when we're rushing. It means slowing down enough to think deeply about what God has done and what He has said.",
+          "Maybe that's one of the greatest gifts of spending time in God's Word. It gives us something worth pondering.",
+          "We read a verse, and instead of immediately moving on, we let it sit with us. What does this show me about God? What does it reveal about my heart? What would change if I actually believed this today?",
+          "You don't have to finish an entire study to spend meaningful time with God. Sometimes one verse is enough to carry into the day.",
+          "So today, don't rush through these five minutes just so you can say you completed them. Pick one truth and treasure it.",
+          "Carry it into breakfast. Carry it into the car. Carry it into the conversation that might test your patience. Carry it with you when you pick up your phone and remember that you already spent the first few minutes of your day somewhere better.",
+          "The goal isn't simply to finish reading God's Word. It's to let His Word stay with you after you've finished reading."
+        ],
+        prayer: "Father, teach me to slow down and treasure Your Word. Help me carry what I read today into the ordinary moments of my life and remember You throughout my day. Amen."
+      },
+      {
+        id: 21,
+        scripture: "Be still, and know that I am God.",
+        ref: "Psalm 46:10",
+        paragraphs: [
+          "Being still sounds lovely until you actually try it. Then you realize your brain apparently has a full-time job producing thoughts. You sit down to pray and suddenly remember that you need to order toothpaste. You try to read Scripture and remember an email you forgot to send. You close your eyes and your brain starts replaying a conversation from three days ago as though you are preparing for the courtroom.",
+          "We are not very good at stillness.",
+          "Psalm 46 tells us to be still and know that God is God. Notice the order. Stillness creates room for remembering something we desperately need to remember: God is God, and I am not.",
+          "That sounds obvious, but our schedules often tell a different story. We live as though everything depends on us. We carry tomorrow's problems today. We rehearse conversations that haven't happened. We try to anticipate every possible disaster before breakfast.",
+          "Being still doesn't mean your problems disappear. It means you stop pretending you are responsible for controlling everything.",
+          "For these few minutes, let the phone stay where it is. Let the laundry wait. Let the unanswered question remain unanswered. Open God's Word and remember who is sitting on the throne.",
+          "You don't have to figure out your entire life before you get up.",
+          "God is God. You are not. And honestly, that's very good news."
+        ],
+        prayer: "Father, quiet my restless heart. Help me stop carrying what belongs to You and remember that You are God over everything I cannot control. Amen."
+      },
+      {
+        id: 22,
+        scripture: "Trust in the Lord with all your heart, and do not lean on your own understanding.",
+        ref: "Proverbs 3:5",
+        paragraphs: [
+          "We love understanding things. Give us enough information and we will happily investigate a situation until we have turned a two-minute question into a three-hour research project. We don't just want to know what happened. We want to know why it happened, what might happen next, what everyone involved is thinking, and preferably what will happen six months from now.",
+          "And if we can't figure it out, we get uncomfortable.",
+          "Proverbs tells us not to lean on our own understanding. That's difficult because understanding feels like security. If I can explain it, I feel like I can manage it.",
+          "But God doesn't ask us to understand everything before we trust Him.",
+          "There will be things in your life that don't make sense. A door will close that you thought God was opening. A prayer will seem unanswered. Someone will make a decision you cannot understand. Something will happen that you would never have chosen.",
+          "You can spend hours trying to mentally solve what only God knows, or you can bring your limited understanding to the One who has unlimited wisdom.",
+          "Today, let Scripture interrupt your need to figure everything out.",
+          "Trust doesn't mean you stop thinking. It means you recognize that your understanding has limits—and God's doesn't."
+        ],
+        prayer: "Lord, I confess how often I want answers before I am willing to trust You. Help me lean on You when I cannot understand what You are doing. Give me peace in what I cannot explain. Amen."
+      },
+      {
+        id: 23,
+        scripture: "A soft answer turns away wrath, but a harsh word stirs up anger.",
+        ref: "Proverbs 15:1",
+        paragraphs: [
+          "There are moments when a harsh answer seems completely justified. Someone says something irritating, and suddenly your brain produces the perfect response. It's clever. It's accurate. It's devastating. You could absolutely win this conversation.",
+          "And then the Holy Spirit reminds you that winning the conversation and honoring Christ are not always the same thing.",
+          "Proverbs says a soft answer turns away wrath. That doesn't mean pretending wrong is right or refusing to speak truth. It means the way we speak matters.",
+          "Sometimes we tell ourselves, 'I'm just being honest.' But honesty doesn't give us permission to be cruel. We can tell the truth with a tone that either invites someone toward repentance or pushes them deeper into defensiveness.",
+          "And this is where time in God's Word becomes practical very quickly. You don't read Proverbs 15:1 so you can check off another verse. You read it so that when someone pushes the exact button they know how to push, the Word of God is already in your mind.",
+          "Because there will be a moment today. There always is.",
+          "Maybe someone interrupts you. Maybe someone misunderstands you. Maybe someone leaves the cabinet open again. The kingdom of God may advance through the extraordinary spiritual discipline of quietly closing the cabinet yourself.",
+          "Let today's Scripture get there before your mouth does."
+        ],
+        prayer: "Lord, put a guard over my mouth today. Help me speak truth with gentleness and give me self-control when I am tempted to answer harshly. Make my words reflect Christ. Amen."
+      },
+      {
+        id: 24,
+        scripture: "Do everything without grumbling or disputing.",
+        ref: "Philippians 2:14",
+        paragraphs: [
+          "This verse is particularly challenging because complaining can feel like a hobby. Sometimes we don't even realize we're doing it. We complain about the weather, the traffic, the dishes, the prices, the schedule, the noise, the mess, the people making the mess, and then the fact that nobody seems to appreciate how much we do.",
+          "And let's be honest: sometimes we don't just complain. We build a case.",
+          "We can turn one irritating moment into a full documentary about why our lives are unfair.",
+          "Paul says, 'Do everything without grumbling.' Not some things. Everything.",
+          "That's a hard word because complaining often feels harmless. But what is happening underneath our complaints? We are declaring that we don't like what God has placed in front of us, and we are assuming that our view of the situation is better than His.",
+          "That doesn't mean we can't acknowledge genuine difficulty. Scripture gives us plenty of examples of God's people crying out in pain. The issue is the posture of our hearts.",
+          "Today, when you catch yourself complaining, pause. Ask God to help you see the situation differently. Maybe the thing irritating you is an opportunity to practice patience. Maybe the inconvenience is an opportunity to serve. Maybe the ordinary work is simply the work God has given you today.",
+          "You may still need to wash the dishes.",
+          "But you don't have to wash them while rehearsing a speech about how nobody else contributes."
+        ],
+        prayer: "Lord, expose the complaining in my heart. Help me receive ordinary responsibilities with gratitude and trust You even when my circumstances are inconvenient. Amen."
+      },
+      {
+        id: 25,
+        scripture: "Whatever you do, work heartily, as for the Lord and not for men.",
+        ref: "Colossians 3:23",
+        paragraphs: [
+          "There are jobs in life that receive applause, and there are jobs that disappear almost as soon as you finish them. Cleaning is one of those jobs. You can clean the entire kitchen, turn around for approximately twelve seconds, and somehow there is a cup on the counter.",
+          "It is enough to make a woman question the existence of clean surfaces.",
+          "Paul reminds us that our work is ultimately done for the Lord. That changes the way we look at ordinary tasks.",
+          "God sees the work nobody else notices. He sees the meals prepared, the floors swept, the children taught, the emails answered, the elderly parent cared for, the employee who quietly does her job well, and the woman who keeps faithfully serving even when nobody says thank you.",
+          "Your worth doesn't come from being noticed. Your work can become worship when you do it for Christ.",
+          "That also means we don't need to chase applause from people. If someone notices, wonderful. If nobody does, God still sees.",
+          "Before you jump back into today's responsibilities, remember who you're actually serving.",
+          "The goal isn't to make every task exciting. Some tasks will remain aggressively unexciting.",
+          "The goal is to do ordinary things with an extraordinary awareness that Christ is Lord over them too."
+        ],
+        prayer: "Lord, help me serve You faithfully in the ordinary things today. When my work goes unnoticed, remind me that You see it. Give me joy and faithfulness in whatever You have placed before me. Amen."
+      },
+      {
+        id: 26,
+        scripture: "For where your treasure is, there your heart will be also.",
+        ref: "Matthew 6:21",
+        paragraphs: [
+          "If you want to know what you value, look at where your attention goes. Our hearts have a way of following whatever keeps getting our time.",
+          "We may say we value family, but spend the entire evening staring at a phone. We may say we value health, but spend an hour researching dessert recipes while eating something that was technically supposed to be tomorrow's lunch. We may say we value God, but somehow the first thing we reach for every morning is our phone.",
+          "Jesus connects treasure and heart.",
+          "This isn't meant to make us obsess over every minute of our day. It is an invitation to examine what is shaping our desires.",
+          "What gets your first attention? What do you think about when you have a spare moment? What do you reach for when you're uncomfortable? What do you make time for without having to convince yourself?",
+          "Those questions can reveal what has become treasure.",
+          "The good news is that our habits can change. We can put the phone down. We can open Scripture before opening social media. We can choose to spend a few quiet minutes with Christ before the world begins telling us what we should care about.",
+          "Where your attention goes, your heart often follows.",
+          "So give your heart somewhere better to go today."
+        ],
+        prayer: "Jesus, show me what has been competing for my heart. Help me treasure You above temporary things and order my attention around what truly matters. Amen."
+      },
+      {
+        id: 27,
+        scripture: "My grace is sufficient for you, for my power is made perfect in weakness.",
+        ref: "2 Corinthians 12:9",
+        paragraphs: [
+          "We don't like weakness. We especially don't like admitting it. We would much rather say, 'I'm tired' than 'I can't handle this.' We would rather push through than admit we need help.",
+          "Sometimes even our spiritual lives become another place where we try to prove that we're doing fine.",
+          "Paul prayed for his weakness to be removed, and God's answer wasn't what he expected. God told him that grace was sufficient.",
+          "That means your weakness doesn't disqualify you from coming to Christ. It is one of the very places where you discover your dependence on Him.",
+          "Maybe you're exhausted today. Maybe you feel spiritually dry. Maybe you're struggling with a sin you've confessed more times than you want to count. Maybe you're discouraged because you thought you would be further along by now.",
+          "Don't wait until you feel strong enough to come to God.",
+          "Come weak.",
+          "Come tired. Come distracted. Come needy. Come honestly.",
+          "You aren't bringing God something He doesn't already know about you. His grace isn't surprised by your weakness.",
+          "You don't have to pretend you're doing better than you are in order to sit with Jesus."
+        ],
+        prayer: "Lord, thank You that Your grace is sufficient for me. Help me stop hiding my weakness and instead depend on Your strength. Meet me in the places where I feel most inadequate. Amen."
+      },
+      {
+        id: 28,
+        scripture: "Cast all your anxieties on him, because he cares for you.",
+        ref: "1 Peter 5:7",
+        paragraphs: [
+          "Anxiety has a way of turning one thought into an entire franchise. Something small happens and suddenly your mind has written twelve possible endings, none of which are particularly encouraging.",
+          "We tell ourselves we're just being prepared. But there is a difference between preparing for something and mentally living through every possible disaster before it happens.",
+          "Peter tells us to cast our anxieties on God because He cares for us.",
+          "I love that the command isn't simply 'stop worrying.' We aren't told to magically switch off our minds. We're told what to do with the anxiety: give it to God.",
+          "That means your worry has somewhere to go.",
+          "When you read Scripture today, don't just read it as information. Bring your actual concerns with you. Name them. Tell God what you're afraid of. Tell Him what you don't know. Tell Him what you're tempted to control.",
+          "Then remind yourself that He cares.",
+          "The situation may not change immediately. But you don't have to carry it alone.",
+          "And if you pick the worry back up five minutes later—which, let's be honest, we sometimes do—give it back again.",
+          "Apparently we need practice."
+        ],
+        prayer: "Father, You know the things that make me anxious. Help me cast them on You instead of carrying them myself. Remind me today that You care for me and that I can trust You. Amen."
+      },
+      {
+        id: 29,
+        scripture: "A joyful heart is good medicine, but a crushed spirit dries up the bones.",
+        ref: "Proverbs 17:22",
+        paragraphs: [
+          "Sometimes Christians act like joy means walking around with a permanent smile while pretending everything is wonderful. That's not biblical joy. Scripture is full of people who cried, grieved, questioned, lamented, and still trusted God.",
+          "But there is also something powerful about remembering how to laugh.",
+          "We can become so serious about our responsibilities that we forget God created us to enjoy good gifts. A funny conversation with your child. A ridiculous family story. A meal you didn't have to cook. A song that makes you dance in the kitchen even though nobody asked for a performance.",
+          "Joy is not denial. It's recognizing that difficulty isn't the only thing that is true.",
+          "The Christian life contains suffering, but it also contains goodness. God's mercies are new every morning. There is beauty in creation. There is fellowship. There is laughter. There is redemption.",
+          "Sometimes our five minutes in Scripture remind us that our current frustration is not the entire story.",
+          "So today, ask God to help you notice something good.",
+          "Laugh when something is funny. Thank Him for something ordinary. Enjoy a gift without immediately worrying about what could go wrong.",
+          "Joy doesn't mean ignoring reality. It means remembering that reality includes the goodness of God."
+        ],
+        prayer: "Father, thank You for the good gifts You place in ordinary days. Help me receive them with gratitude and cultivate joy even when life is difficult. Amen."
+      },
+      {
+        id: 30,
+        scripture: "Give us this day our daily bread.",
+        ref: "Matthew 6:11",
+        paragraphs: [
+          "We like having a plan. Preferably a detailed plan. And if possible, a backup plan for the backup plan.",
+          "We want to know how the month will go, how the finances will work, what the kids will be doing next year, whether the decision we're making today will turn out correctly, and what exactly God plans to do about everything we're worried about.",
+          "Then Jesus teaches us to pray for daily bread.",
+          "Daily.",
+          "Not a five-year supply. Not enough information to guarantee that nothing unexpected will happen. Just enough for today.",
+          "There is something freeing about that.",
+          "God knows that we tend to live in tomorrow. We spend today worrying about a future we haven't reached yet. Jesus brings us back to the present dependence of daily bread.",
+          "Maybe your time with God today can be a reminder that you don't have to receive tomorrow's grace today. God will provide what you need when tomorrow becomes today.",
+          "You can make wise plans. You can prepare responsibly. But you don't have to emotionally live in every future moment before it arrives.",
+          "Today has enough of its own responsibilities.",
+          "Receive today's bread. Trust God for tomorrow's."
+        ],
+        prayer: "Father, thank You for providing what I need one day at a time. Help me stop borrowing tomorrow's worries and trust You to provide tomorrow's grace when I get there. Amen."
+      },
+      {
+        id: 31,
+        scripture: "The Lord is near to the brokenhearted and saves the crushed in spirit.",
+        ref: "Psalm 34:18",
+        paragraphs: [
+          "There are some kinds of pain that make ordinary life feel almost offensive. The world keeps moving. People are laughing. The grocery store is still open. Someone is complaining about traffic while your heart is carrying something heavy.",
+          "Grief doesn't always fit neatly into a schedule.",
+          "Sometimes we think we need to get ourselves together before we come to God. We don't want to bother Him with our sadness. Maybe we tell ourselves other people have bigger problems.",
+          "But Scripture says the Lord is near to the brokenhearted.",
+          "Near.",
+          "God does not stand at a distance waiting for you to become cheerful enough to approach Him. He draws near to the crushed in spirit.",
+          "If today is heavy, your five minutes don't need to be productive. You don't need to find the perfect devotional thought. You can simply open a Psalm and let the words give language to what you cannot express.",
+          "Cry if you need to. Sit quietly if you need to. Tell God exactly what hurts.",
+          "He already knows.",
+          "Sometimes spending time with God doesn't make us feel instantly better. Sometimes it simply reminds us that we are not suffering alone."
+        ],
+        prayer: "Father, draw near to me in the places where I am hurting. Help me bring my grief honestly to You and trust that You are near even when I do not feel strong. Amen."
+      },
+      {
+        id: 32,
+        scripture: "Let your speech always be gracious, seasoned with salt.",
+        ref: "Colossians 4:6",
+        paragraphs: [
+          "Some people have a gift for saying exactly the wrong thing at exactly the wrong time. Unfortunately, sometimes that person is me.",
+          "We can convince ourselves that because something is true, it needs to be said immediately, loudly, and with all seventeen supporting arguments.",
+          "Paul tells believers to let their speech be gracious and seasoned with salt.",
+          "Grace doesn't mean avoiding truth. Salt doesn't mean dumping the entire salt shaker onto someone's dinner. There is a balance.",
+          "Our words should be truthful and kind. Firm when necessary, but not cruel. Honest without becoming harsh.",
+          "And the people closest to us often receive the least filtered version of us. We can be wonderfully polite to a stranger and then give our family the leftovers of our patience.",
+          "That's why Scripture needs to get into us before the moment comes.",
+          "Today, before you answer the difficult text, respond to the frustrating comment, or correct the person who is absolutely, definitely, completely wrong—pause.",
+          "Ask yourself: 'Will my words help this person? Are they gracious? Am I speaking because this needs to be said, or because I want to win?'",
+          "Sometimes holiness sounds like silence for three seconds."
+        ],
+        prayer: "Lord, make my words gracious and wise. Help me slow down before I speak and use my words to build others up rather than simply prove that I am right. Amen."
+      },
+      {
+        id: 33,
+        scripture: "In everything give thanks; for this is the will of God in Christ Jesus for you.",
+        ref: "1 Thessalonians 5:18",
+        paragraphs: [
+          "Giving thanks is easy when things go our way. We can thank God for the answered prayer, the good news, the beautiful day, the unexpected blessing.",
+          "But then the printer stops working five minutes before you need it, someone spills something on the clean floor, your plans change, and suddenly gratitude feels like a spiritual advanced course.",
+          "Paul says, 'In everything give thanks.'",
+          "Notice he doesn't say for everything. Scripture isn't asking us to pretend painful things are good. We can grieve what is genuinely painful. We can acknowledge injustice. We can pray for change.",
+          "But even in difficult circumstances, there are things we can thank God for.",
+          "He is still God. Christ has still saved us. His promises are still true. His mercy has not disappeared because our morning went sideways.",
+          "Gratitude changes what we notice.",
+          "So today, before you ask God for the next thing, name three things He has already given you.",
+          "They don't have to be dramatic.",
+          "Thank Him for coffee if that's where you need to start. Thank Him for a warm house. Thank Him for the person who makes you laugh. Thank Him for Scripture. Thank Him for salvation.",
+          "Gratitude doesn't erase difficulty. It keeps difficulty from becoming the only thing we see."
+        ],
+        prayer: "Father, teach me to recognize Your goodness in ordinary moments. Help me give thanks even when circumstances are difficult and remember that Your faithfulness does not change with my circumstances. Amen."
+      },
+      {
+        id: 34,
+        scripture: "Commit your work to the Lord, and your plans will be established.",
+        ref: "Proverbs 16:3",
+        paragraphs: [
+          "We make plans. Lots of plans. We make plans for the day, the week, the year, the kids, the house, the budget, the vacation, and sometimes plans for things that haven't even happened yet.",
+          "Then life laughs.",
+          "The appointment gets canceled. Someone gets sick. The car makes a noise it has never made before. The schedule changes. The thing you were sure would happen doesn't.",
+          "Proverbs doesn't tell us not to plan. It tells us to commit our work to the Lord.",
+          "That's the difference between planning with open hands and planning as though we are sovereign.",
+          "We can make responsible plans while remembering that God gets the final say.",
+          "That can be difficult because control feels safer than surrender. If I can make the perfect plan, perhaps nothing can surprise me.",
+          "But God doesn't promise that nothing will surprise us. He promises Himself.",
+          "So today, bring your plans to Him. Tell Him what you hope for. Ask for wisdom. Work faithfully. And then leave room for Him to redirect you.",
+          "You don't need to know every turn in the road to trust the One who does."
+        ],
+        prayer: "Lord, I give You my plans today. Help me make wise decisions without trying to control every outcome. Give me humility to follow You when Your plans are different from mine. Amen."
+      },
+      {
+        id: 35,
+        scripture: "The fear of man lays a snare, but whoever trusts in the Lord is safe.",
+        ref: "Proverbs 29:25",
+        paragraphs: [
+          "People-pleasing can be exhausting because there is always another person to please. And somehow they all want different things.",
+          "One person thinks you're doing too much. Another thinks you're not doing enough. Someone thinks you should say yes. Someone else thinks you should say no. Someone has an opinion about your parenting, your house, your clothes, your schedule, your Bible reading, and probably what you had for breakfast.",
+          "If we let every opinion become our authority, we'll spend our entire lives trying to keep everyone happy.",
+          "Proverbs calls the fear of man a snare.",
+          "A snare is a trap. And that's exactly what people-pleasing can become. We begin making decisions based on how people might react instead of asking what is faithful to God.",
+          "This doesn't mean we stop caring about people. Christians are called to love others. But loving people is different from living for their approval.",
+          "Jesus Himself was misunderstood, rejected, criticized, and accused. He never allowed the opinions of people to determine His obedience to the Father.",
+          "Today, ask yourself where you have been afraid of someone's opinion.",
+          "Then bring that fear to God.",
+          "You don't need everyone's approval to be faithful."
+        ],
+        prayer: "Lord, free me from the fear of people's opinions. Help me love others well without making their approval my master. Give me courage to obey You even when people misunderstand me. Amen."
+      },
+      {
+        id: 36,
+        scripture: "The Lord is good to all, and his mercy is over all that he has made.",
+        ref: "Psalm 145:9",
+        paragraphs: [
+          "Sometimes we rush through life so quickly that we barely notice the goodness right in front of us. We eat breakfast while answering messages. We drink coffee while scrolling. We walk outside while thinking about what we need to do next.",
+          "We're physically present but mentally somewhere else.",
+          "Psalm 145 reminds us that God's mercy is over all He has made.",
+          "Creation is full of reminders that God is generous. The sunrise doesn't ask whether we've earned it. The rain falls. Birds sing. Flowers grow. Seasons change. Food tastes better than it technically needs to.",
+          "And yet we can miss all of it because we're busy thinking about the next thing.",
+          "Spending time with God isn't only about accomplishing a reading plan. It can train us to notice Him.",
+          "Today, read a passage and then look around. What evidence of God's goodness can you see?",
+          "Maybe it's something spectacular. Maybe it's just the sunlight coming through the window while you're holding your coffee.",
+          "Pay attention.",
+          "The world is full of reminders that you are living inside a creation made by a generous God."
+        ],
+        prayer: "Father, slow me down enough to notice Your goodness. Give me eyes to see the ordinary gifts around me and a heart that responds with gratitude and worship. Amen."
+      },
+      {
+        id: 37,
+        scripture: "If anyone would come after me, let him deny himself and take up his cross daily and follow me.",
+        ref: "Luke 9:23",
+        paragraphs: [
+          "We love the idea of following Jesus right up until following Jesus asks us to deny ourselves.",
+          "We are naturally talented at self-denial when it involves something we already don't want. But deny myself the thing I actually want? That's another conversation.",
+          "Jesus doesn't describe discipleship as occasionally attending a Christian event when our schedule allows. He says to take up our cross daily.",
+          "Daily.",
+          "That means following Jesus gets into ordinary decisions. How we speak. What we watch. What we pursue. What we do with our money. How we respond when we're offended. Whether we forgive. Whether we tell the truth. Whether we choose obedience when nobody is watching.",
+          "This is why time in Scripture matters. We need to continually have our minds recalibrated because the world is continually discipling us in another direction.",
+          "Five minutes in God's Word doesn't replace a life of obedience. It helps prepare us for one.",
+          "Today, ask God where He is calling you to deny yourself and follow Him.",
+          "It may not be dramatic. It may simply be choosing patience instead of retaliation or putting down something you know is distracting you from Him.",
+          "The cross is heavy. But we're following Christ."
+        ],
+        prayer: "Jesus, teach me what it means to follow You today. Give me courage to deny myself when obedience is difficult and help me remember that You are worth following wherever You lead. Amen."
+      },
+      {
+        id: 38,
+        scripture: "Let all that you do be done in love.",
+        ref: "1 Corinthians 16:14",
+        paragraphs: [
+          "This verse is short enough that you could probably memorize it before your coffee finishes brewing. Which is convenient, because we will need it approximately seventeen times before lunch.",
+          "Let all that you do be done in love.",
+          "Not just the obviously spiritual things. All that you do.",
+          "How we correct our children. How we speak to our spouse. How we answer an annoying message. How we respond when someone is slower than we are. How we talk about someone who isn't in the room.",
+          "Love isn't simply a warm feeling. Biblical love is patient, kind, not arrogant, not resentful, and willing to seek the good of another person.",
+          "Which means we quickly discover that love requires the power of the Holy Spirit because our natural response is often something more like, 'Let me explain to you exactly why you're wrong.'",
+          "This is where Scripture moves from the page into the kitchen, the car, the group chat, and the living room.",
+          "Today, don't just ask, 'What should I know?' Ask, 'How should this change the way I love?'",
+          "Because the point isn't merely to become women who know more Bible verses.",
+          "We want to become women whose lives increasingly look like the Christ those verses reveal."
+        ],
+        prayer: "Lord, let everything I do today be shaped by love. Give me patience, kindness, humility, and self-control so that the people closest to me see Christ in the way I live. Amen."
+      },
+      {
+        id: 39,
+        scripture: "I have learned in whatever situation I am to be content.",
+        ref: "Philippians 4:11",
+        paragraphs: [
+          "Contentment is difficult when we have a device in our hand that can show us exactly what everyone else has.",
+          "Someone bought a new house. Someone went on vacation. Someone remodeled their kitchen. Someone has a better car. Someone's children are doing something impressive. Someone somehow has a clean house and matching pajamas, which frankly feels suspicious.",
+          "Comparison whispers, 'Your life would be better if...'",
+          "Paul says he learned contentment.",
+          "Learned.",
+          "That means contentment wasn't simply his personality. It was something God taught him over time through different circumstances.",
+          "Contentment doesn't mean we can't have goals or desire good things. It means we stop believing that our joy is waiting for the next thing.",
+          "The next purchase won't permanently satisfy. The next accomplishment won't finally make us enough. The next season won't automatically solve our restlessness.",
+          "Christ is sufficient now.",
+          "Maybe today, instead of scrolling through everything you don't have, spend five minutes thanking God for what you do have.",
+          "Look around your actual life instead of the carefully edited lives on your screen.",
+          "You may discover that the Lord has already given you more reasons for gratitude than you have noticed."
+        ],
+        prayer: "Lord, teach me contentment. Protect my heart from comparison and help me recognize the good gifts You have already given me. Teach me to find my satisfaction in Christ rather than in having more. Amen."
+      },
+      {
+        id: 40,
+        scripture: "But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To him be the glory both now and to the day of eternity.",
+        ref: "2 Peter 3:18",
+        paragraphs: [
+          "There is something funny about how impatient we can be with our own spiritual growth. We want to be mature immediately. We want to have the patience of a saint, the wisdom of Solomon, the prayer life of someone who wakes up at 4:30 a.m. voluntarily, and the self-control of a person who apparently doesn't know what chocolate is.",
+          "Then we have one bad day and wonder why we're still struggling with the same things.",
+          "Peter tells us to grow in grace and knowledge. Growth takes time.",
+          "A child doesn't wake up one morning six feet tall because she decided she was tired of being short. Growth happens gradually, often so slowly that you don't notice it happening.",
+          "The same is true spiritually.",
+          "There may be sins you struggle with today that won't always have the same power over you. There may be truths you barely understand now that will become precious to you years from now. There may be areas where you look back someday and realize, 'God really changed me there.'",
+          "So keep coming.",
+          "Read the Word when you have an hour. Read it when you have twenty minutes. Read it when you have five.",
+          "Not because five minutes magically makes you spiritually mature, but because faithfulness over time matters.",
+          "You are not trying to become a completely different person overnight; you are following a Savior who is faithfully completing the work He started in you."
+        ],
+        prayer: "Jesus, give me patience with my own growth and keep me coming to You day after day. Help me trust that You are working in me even when I cannot see it. Amen."
+      },
+{
+  id: 41,
+  scripture: "Teach us to number our days, that we may get a heart of wisdom.",
+  ref: "Psalm 90:12",
+  paragraphs: [
+    "We are very good at spending time as though we have an unlimited supply of it. Five minutes here. Twenty minutes there. Just one more video. One more scroll. One more search because apparently we absolutely need to know why our left eye has been twitching for three days.",
+    "Then suddenly the day is gone.",
+    "Psalm 90 gives us a different perspective: teach us to number our days.",
+    "The point isn't to become obsessed with the clock or live like every minute needs to be maximized. It's to recognize that our days are a gift, and they are limited.",
+    "We don't know how many mornings we have left. We don't know how many ordinary breakfasts, bedtime stories, conversations, walks, or quiet moments God will give us.",
+    "Wisdom begins when we stop treating time as though it belongs to us.",
+    "That includes these few minutes.",
+    "You don't have to spend hours with God every single day to prove that you love Him. But if you continually tell yourself you'll get around to Him when life settles down, you may eventually discover that life never really settles down.",
+    "There will always be laundry.",
+    "There will always be another email.",
+    "There will always be something you could research.",
+    "Number your days. Then choose what is worthy of some of them."
+  ],
+  prayer: "Lord, teach me to value the time You have given me. Give me wisdom to spend my days on what matters and not waste the moments You have entrusted to me. Amen."
+},
+{
+  id: 42,
+  scripture: "Your word is a lamp to my feet and a light to my path.",
+  ref: "Psalm 119:105",
+  paragraphs: [
+    "We would love a flashlight that illuminates the entire road. Not just the next step. We want to know the whole plan.",
+    "God, just show me the next ten years. Maybe a spreadsheet would be helpful. A color-coded one would be even better.",
+    "But Scripture says God's Word is a lamp to our feet and a light to our path.",
+    "A lamp gives enough light for where you are.",
+    "Sometimes that's all God gives us too.",
+    "We want answers about what is coming, but God often gives us wisdom for what is right in front of us. What should I do today? How should I respond? What does obedience look like right now?",
+    "You may not know how your entire story will unfold. But you can know what God has already told you.",
+    "Forgive. Love. Speak truth. Pursue holiness. Care for others. Trust Him. Pray. Walk faithfully.",
+    "The Bible may not answer every question about your future, but it gives you what you need to walk faithfully through it.",
+    "So don't wait until you understand the entire road before you open the lamp."
+  ],
+  prayer: "Father, thank You for giving me Your Word as a light for my path. Help me trust You with what I cannot see and faithfully obey what You have already shown me. Amen."
+},
+{
+  id: 43,
+  scripture: "Come to me, all who labor and are heavy laden, and I will give you rest.",
+  ref: "Matthew 11:28",
+  paragraphs: [
+    "Jesus doesn't say, 'Come to Me once you have your life together.'",
+    "He says, 'Come to Me' when you are laboring and heavy laden.",
+    "Which is convenient because apparently being a human being comes with a tendency to become overwhelmed.",
+    "We carry responsibilities, expectations, relationships, disappointments, regrets, worries, and approximately fourteen tabs open in our brains at all times.",
+    "And sometimes we treat time with God like one more responsibility instead of the place where we bring those burdens.",
+    "Jesus offers rest.",
+    "That doesn't necessarily mean your circumstances will become quiet. The baby may still wake up. The dishes will still exist. Your inbox will remain personally offended by your attempt to get caught up.",
+    "But Christ offers a deeper kind of rest—the rest of coming under His care instead of believing everything depends on you.",
+    "So don't skip your time with God because you're too overwhelmed.",
+    "Go to Him because you're overwhelmed.",
+    "You don't need to arrive calm. You can arrive exhausted.",
+    "Jesus already knows."
+  ],
+  prayer: "Jesus, I come to You with the things that are weighing me down. Teach me to rest in You instead of carrying everything myself. Help me remember that I am not alone. Amen."
+},
+{
+  id: 44,
+  scripture: "Be quick to hear, slow to speak, slow to anger.",
+  ref: "James 1:19",
+  paragraphs: [
+    "James gives us three instructions, and somehow the hardest one is often the first: listen.",
+    "We are very talented at listening while preparing our response. Someone is talking and we're already constructing our defense, our explanation, our correction, and possibly a list of things they did six months ago that are suddenly relevant.",
+    "James says be quick to hear.",
+    "Actually listen.",
+    "Then be slow to speak and slow to anger.",
+    "That's not exactly the formula our culture teaches us. We're encouraged to respond immediately, defend ourselves quickly, and make sure our opinion is heard.",
+    "But spiritual maturity often looks slower.",
+    "A pause before responding. A question instead of an accusation. A willingness to hear someone out before deciding what they meant.",
+    "This doesn't mean becoming a doormat or refusing to address problems. It means refusing to let anger become the driver.",
+    "Today, someone may say something that irritates you.",
+    "When it happens, remember James 1:19.",
+    "You don't have to respond at the speed of your emotions."
+  ],
+  prayer: "Lord, make me quick to listen and slow to speak. Help me control my anger and respond with wisdom rather than reacting from emotion. Amen."
+},
+{
+  id: 45,
+  scripture: "Do not be conformed to this world, but be transformed by the renewal of your mind.",
+  ref: "Romans 12:2",
+  paragraphs: [
+    "Your mind is being shaped by something every single day.",
+    "The question isn't whether you're being influenced. The question is by what.",
+    "Every video, conversation, advertisement, social media post, show, podcast, and headline is telling you something about what matters, what you should want, what you should fear, and what will supposedly make you happy.",
+    "Paul tells us not to be conformed to the world but to be transformed by the renewing of our minds.",
+    "That means we don't simply need more information. We need our minds continually brought back under the truth of God.",
+    "And this is one reason spending time in Scripture matters so much.",
+    "You can spend an hour scrolling and absorb hundreds of opinions without even realizing it. Then you can spend five minutes reading God's Word and suddenly remember, 'Wait. That's not how God says I should think about this.'",
+    "The Word recalibrates us.",
+    "So if you feel like your thoughts have been noisy lately, maybe the answer isn't another podcast about fixing your thoughts.",
+    "Maybe you need to close the apps and open the Bible.",
+    "Let God tell you what is true."
+  ],
+  prayer: "Lord, renew my mind through Your Word. Help me recognize the ways the world is shaping my thinking and continually bring my thoughts back under Your truth. Amen."
+},
+{
+  id: 46,
+  scripture: "A tranquil heart gives life to the flesh, but envy makes the bones rot.",
+  ref: "Proverbs 14:30",
+  paragraphs: [
+    "Envy rarely introduces itself by saying, 'Hello, I'm envy.'",
+    "It usually sounds much more reasonable.",
+    "'Must be nice.'",
+    "'I wish I could do that.'",
+    "'How does she have time for all of that?'",
+    "'Of course her house looks like that.'",
+    "And then suddenly you're scrolling through someone else's life feeling personally betrayed by their kitchen renovation.",
+    "Proverbs gives a strong warning about envy because it doesn't simply make us unhappy. It eats away at contentment.",
+    "The problem with comparison is that we are usually comparing our behind-the-scenes to someone else's highlight reel.",
+    "We don't see their struggles, doubts, arguments, financial worries, exhaustion, or ordinary Tuesday afternoon.",
+    "We see the picture.",
+    "God has not called you to live her life.",
+    "He has called you to faithfully live yours.",
+    "So today, when comparison creeps in, stop and thank God for something about your own life.",
+    "Not because everything is perfect, but because His goodness is not limited to what someone else has."
+  ],
+  prayer: "Father, protect my heart from envy and comparison. Help me appreciate the life You have entrusted to me and trust that Your plans for me are good. Amen."
+},
+{
+  id: 47,
+  scripture: "The generous will prosper; whoever refreshes others will be refreshed.",
+  ref: "Proverbs 11:25",
+  paragraphs: [
+    "We often think we need to have a lot before we can be generous.",
+    "More money. More time. More energy. A cleaner house. A better schedule.",
+    "We'll serve someone once everything settles down.",
+    "Except everything rarely settles down.",
+    "Proverbs reminds us that refreshing others is part of a life of blessing.",
+    "And refreshing someone doesn't always require a grand gesture.",
+    "It can be a text message to a discouraged friend. Making someone dinner. Watching someone's children for an hour. Bringing coffee. Listening without trying to fix everything. Sending an encouraging Scripture because you thought of them.",
+    "Sometimes we make generosity more complicated than it needs to be.",
+    "Ask God today, 'Who can I refresh?'",
+    "Then actually do something.",
+    "And yes, you may have to put down your phone long enough to send the text.",
+    "Your five minutes in God's Word may turn into five minutes spent loving someone else.",
+    "That's not losing time.",
+    "That's living out what you just read."
+  ],
+  prayer: "Lord, show me someone I can encourage or serve today. Make me generous with my time, attention, words, and resources. Help me become someone who refreshes others. Amen."
+},
+{
+  id: 48,
+  scripture: "The steadfast love of the Lord never ceases; his mercies never come to an end.",
+  ref: "Lamentations 3:22",
+  paragraphs: [
+    "Some mornings you wake up feeling like you're already behind.",
+    "You didn't sleep well. The kids are arguing. You forgot something. You said something you shouldn't have said yesterday. You open your phone and immediately discover twelve things wrong with the world.",
+    "And before you've even finished your coffee, you're discouraged.",
+    "Then Scripture says His mercies are new every morning.",
+    "Every morning.",
+    "Not just the mornings when you woke up early, prayed for thirty minutes, exercised, drank water, and successfully avoided checking your phone for an hour.",
+    "Every morning.",
+    "God's mercy isn't waiting for you to have a perfect morning routine.",
+    "You can begin again today.",
+    "Maybe yesterday wasn't your best day spiritually. Maybe you lost your temper. Maybe you wasted hours. Maybe you gave in to something you knew you shouldn't.",
+    "Confess it. Receive God's forgiveness. Get back up.",
+    "The Christian life isn't about never stumbling. It's about continuing to come back to Christ.",
+    "His mercy didn't run out overnight."
+  ],
+  prayer: "Father, thank You for new mercies this morning. Help me receive Your forgiveness, leave yesterday in Your hands, and walk faithfully with You today. Amen."
+},
+{
+  id: 49,
+  scripture: "Whoever walks with the wise becomes wise, but the companion of fools will suffer harm.",
+  ref: "Proverbs 13:20",
+  paragraphs: [
+    "We like to think we're completely independent thinkers.",
+    "Nobody influences me. I make my own decisions. I can watch whatever I want, listen to whatever I want, follow whoever I want, and it won't affect me.",
+    "Except Scripture says the people we walk with matter.",
+    "The voices we repeatedly listen to matter.",
+    "The friendships we cultivate matter.",
+    "And yes, the accounts we follow online matter too.",
+    "You don't have to agree with someone on everything for them to influence you. Repeated exposure shapes us.",
+    "So ask yourself: Who is discipling me?",
+    "Who am I listening to every day? Whose definition of success am I absorbing? Whose opinions are shaping how I think about marriage, motherhood, money, beauty, politics, relationships, and God?",
+    "This doesn't mean hiding from everyone who thinks differently than you. It means being intentional about whose voice has the greatest authority in your life.",
+    "Make sure the loudest voice isn't the algorithm."
+  ],
+  prayer: "Lord, give me wisdom about the voices and relationships influencing me. Surround me with people who encourage me toward Christ and help me become a wise and faithful friend to others. Amen."
+},
+{
+  id: 50,
+  scripture: "Whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable... think about these things.",
+  ref: "Philippians 4:8",
+  paragraphs: [
+    "Our minds can turn into a junk drawer.",
+    "We toss in yesterday's awkward conversation, tomorrow's worry, something someone said five years ago, a headline we just read, a hypothetical argument, and one random embarrassing memory from middle school that apparently has decided it deserves another appearance.",
+    "Paul tells us to think about what is true, honorable, just, pure, lovely, commendable, excellent, and worthy of praise.",
+    "That doesn't mean pretending negative things don't exist. It means we don't have to give every thought permanent residence in our minds.",
+    "Some thoughts need to be examined.",
+    "Some need to be rejected.",
+    "Some need to be replaced with truth.",
+    "This is another reason God's Word is so important. Scripture gives us something solid to think about when our minds want to run wild.",
+    "Today, notice what you are feeding your mind.",
+    "If you've spent the last hour consuming outrage, fear, comparison, and negativity, don't be surprised if you feel anxious.",
+    "Put something true in.",
+    "Open the Word.",
+    "Let your mind feast on something better."
+  ],
+  prayer: "Lord, help me take my thoughts captive and focus on what is true and pleasing to You. Guard my mind from what feeds fear, envy, anger, and discontentment. Amen."
+},
+{
+  id: 51,
+  scripture: "The wise in heart will receive commandments, but a babbling fool will come to ruin.",
+  ref: "Proverbs 10:8",
+  paragraphs: [
+    "There is a difference between reading God's Word and actually receiving it.",
+    "We can read a verse, nod thoughtfully, underline it, maybe even post it somewhere—and then completely ignore it when it becomes inconvenient.",
+    "Knowing what God says is not the same thing as obeying what God says.",
+    "Jesus didn't call us simply to collect Bible knowledge. He called us to follow Him.",
+    "So when Scripture confronts something in us, we have a choice.",
+    "We can explain it away.",
+    "We can decide it doesn't really apply to our situation.",
+    "We can find seventeen reasons why someone else needs to hear it more than we do.",
+    "Or we can say, 'Lord, You are right. Help me obey.'",
+    "That last response is where growth happens.",
+    "So as you read today, don't only ask, 'What does this mean?' Ask, 'What should I do because this is true?'",
+    "Sometimes the answer will be uncomfortable.",
+    "That's okay.",
+    "The goal isn't to finish your Bible reading feeling impressive.",
+    "The goal is to finish it more willing to obey Jesus."
+  ],
+  prayer: "Lord, give me a heart that receives Your Word and obeys it. Keep me from becoming someone who knows Scripture but refuses to live according to it. Amen."
+},
+{
+  id: 52,
+  scripture: "The generous soul will be made rich, and he who waters will also be watered.",
+  ref: "Proverbs 11:25",
+  paragraphs: [
+    "Sometimes we wait until we have something impressive to offer before we offer anything at all.",
+    "We think generosity requires extra money, extra time, extra energy, or some special talent.",
+    "But God can use what we already have.",
+    "Maybe you have ten minutes. Maybe you have a meal. Maybe you have a listening ear. Maybe you have experience that another woman desperately needs. Maybe you can pray.",
+    "The question isn't always, 'What do I have?'",
+    "Sometimes it's, 'Am I willing to give what I already have?'",
+    "We can become so focused on what we don't have that we overlook what God has already placed in our hands.",
+    "Moses had a staff. David had a sling. A boy had five loaves and two fish.",
+    "God has never needed impressive resources to accomplish His purposes.",
+    "So don't wait until your life is perfectly organized before you serve.",
+    "Serve in the middle of the ordinary.",
+    "Give what you can.",
+    "God is responsible for what happens with it."
+  ],
+  prayer: "Father, help me see what You have already placed in my hands. Make me willing to give my time, gifts, resources, and attention for Your purposes. Amen."
+},
+{
+  id: 53,
+  scripture: "The heart is deceitful above all things, and desperately sick; who can understand it?",
+  ref: "Jeremiah 17:9",
+  paragraphs: [
+    "We tend to trust our feelings more than we realize.",
+    "If I feel it, it must be true.",
+    "If I'm angry, I must have been wronged.",
+    "If I don't feel like doing something, maybe I shouldn't.",
+    "If I feel like this relationship is hopeless, maybe it is.",
+    "If I feel distant from God, maybe He has moved.",
+    "Scripture gives us a warning: our hearts can deceive us.",
+    "That doesn't mean every feeling is wrong. Feelings are real and worth paying attention to. But they are not always reliable interpreters of reality.",
+    "This is why we need Scripture.",
+    "God's Word tells us what is true even when our emotions are shouting something different.",
+    "You may feel forgotten. Scripture says God is near.",
+    "You may feel condemned. Scripture says there is no condemnation for those in Christ Jesus.",
+    "You may feel like you have to control everything. Scripture tells you to trust God.",
+    "You may feel like giving up. Scripture tells you to persevere.",
+    "Today, don't let your feelings have the final word.",
+    "Let God's Word speak louder."
+  ],
+  prayer: "Lord, help me recognize when my feelings are misleading me. Teach me to bring my emotions honestly to You while allowing Your Word—not my feelings—to define what is true. Amen."
+},
+{
+  id: 54,
+  scripture: "The Lord is my strength and my shield; in him my heart trusts, and I am helped.",
+  ref: "Psalm 28:7",
+  paragraphs: [
+    "There are days when you feel like you are running on fumes.",
+    "You have responsibilities, people depending on you, decisions to make, and somewhere along the way you forgot that you are not actually a machine.",
+    "We can become so accustomed to pushing through that we don't even notice how tired we are until our patience disappears over something ridiculous.",
+    "Someone asks a completely normal question and suddenly you are internally writing your resignation letter from adulthood.",
+    "David says the Lord is his strength and shield.",
+    "Not himself.",
+    "God.",
+    "That matters because Christianity isn't a self-improvement program where we become strong enough to handle everything alone.",
+    "We are dependent creatures.",
+    "We need God.",
+    "So if you are tired today, tell Him.",
+    "Ask for strength before you need it.",
+    "Ask for patience before the difficult conversation.",
+    "Ask for wisdom before the decision.",
+    "You don't have to manufacture everything you need from within yourself.",
+    "God is your strength."
+  ],
+  prayer: "Father, be my strength today. I confess that I often try to carry everything myself. Help me depend on You and trust You for the strength I need for whatever is ahead. Amen."
+},
+{
+  id: 55,
+  scripture: "Do not repay anyone evil for evil, but give thought to do what is honorable in the sight of all.",
+  ref: "Romans 12:17",
+  paragraphs: [
+    "Revenge is one of those things that can feel incredibly satisfying in our imagination.",
+    "We picture the perfect response. The perfect comeback. The moment when someone finally realizes how wrong they were.",
+    "In our heads, the scene is magnificent.",
+    "In reality, Jesus calls us to something very different.",
+    "Paul tells us not to repay evil for evil.",
+    "That doesn't mean we ignore wrongdoing or refuse to seek justice. It means we don't allow someone else's sin to dictate ours.",
+    "Someone can treat you poorly without giving you permission to become cruel.",
+    "Someone can gossip about you without giving you permission to gossip back.",
+    "Someone can be selfish without making your selfishness righteous.",
+    "This is hard because retaliation feels like regaining control.",
+    "But Jesus calls us to trust Him with justice.",
+    "You don't have to win every battle.",
+    "Sometimes obedience looks like refusing to become the person your anger is tempting you to become."
+  ],
+  prayer: "Lord, help me respond to wrongdoing in a way that honors You. Keep me from revenge and bitterness, and give me wisdom to pursue what is right without returning evil for evil. Amen."
+},
+{
+  id: 56,
+  scripture: "He must increase, but I must decrease.",
+  ref: "John 3:30",
+  paragraphs: [
+    "We live in a culture that tells us to build our platform, promote ourselves, protect our image, and make sure people know what we're doing.",
+    "And if we're not careful, even Christian service can quietly become about us.",
+    "How many people noticed? Did they appreciate it? Did they respond? Did anyone say thank you? Did anyone see how much work went into this?",
+    "John the Baptist gives us a completely different goal: He must increase, but I must decrease.",
+    "That's freedom.",
+    "Because if Christ is the point, we don't have to constantly be the point.",
+    "We can serve without applause. We can do good without being noticed. We can celebrate someone else's success without feeling threatened. We can step aside when someone else gets credit.",
+    "Our worth doesn't depend on being seen.",
+    "Jesus gets the glory.",
+    "Today, ask yourself where you have been tempted to make something about you that was supposed to be about Him.",
+    "Then give it back to Him.",
+    "You don't need to build a name for yourself when you belong to Christ."
+  ],
+  prayer: "Jesus, increase in my life and decrease my desire for recognition. Help me serve faithfully whether anyone notices or not, and let my life point people toward You rather than myself. Amen."
+},
+{
+  id: 57,
+  scripture: "Rejoice in hope, be patient in tribulation, be constant in prayer.",
+  ref: "Romans 12:12",
+  paragraphs: [
+    "Three instructions. Rejoice. Be patient. Pray.",
+    "Sounds simple until you actually have a tribulation.",
+    "Then patience becomes considerably more theoretical.",
+    "Paul tells us to rejoice in hope, be patient in trouble, and remain constant in prayer.",
+    "Notice that prayer isn't reserved for when everything falls apart. It is meant to become a constant rhythm of life.",
+    "And that's exactly what we are practicing when we make time for God regularly.",
+    "We are building a habit of turning toward Him.",
+    "Five minutes today. Five minutes tomorrow. Another day. Another prayer. Another passage.",
+    "Over time, those moments become part of how we respond to life.",
+    "When trouble comes, we already know where to turn.",
+    "You don't have to wait until you have a crisis to start praying.",
+    "Start while life is ordinary.",
+    "Build the habit before you desperately need it.",
+    "Then when the storm comes, prayer won't be a strange activity. It will be where you naturally go."
+  ],
+  prayer: "Lord, make me constant in prayer. Help me rejoice in the hope I have in Christ and patiently endure difficulties while continually turning toward You. Amen."
+},
+{
+  id: 58,
+  scripture: "Humble yourselves before the Lord, and he will exalt you.",
+  ref: "James 4:10",
+  paragraphs: [
+    "Humility sounds wonderful until somebody corrects us.",
+    "We can say we want to be humble right up until someone points out something we actually need to change.",
+    "Then suddenly we have a very detailed explanation for why our behavior was actually understandable.",
+    "Humility isn't thinking you're worthless. It's having an accurate view of yourself before God.",
+    "It means we can admit, 'I was wrong.'",
+    "We can say, 'I don't know.'",
+    "We can apologize without adding a twenty-minute explanation about why our behavior was actually understandable.",
+    "We can receive correction without immediately becoming defensive.",
+    "And most importantly, humility recognizes that we desperately need God's grace.",
+    "Time in Scripture keeps reminding us of that.",
+    "The more clearly we see God's holiness, wisdom, and goodness, the less interested we become in pretending we have everything figured out.",
+    "So today, ask God to show you where pride has been hiding.",
+    "And if He shows you something, don't argue with Him.",
+    "That's usually not the winning strategy."
+  ],
+  prayer: "Lord, give me a humble heart. Help me receive correction, admit when I am wrong, and remember that I am completely dependent on Your grace. Amen."
+},
+{
+  id: 59,
+  scripture: "Walk by the Spirit, and you will not gratify the desires of the flesh.",
+  ref: "Galatians 5:16",
+  paragraphs: [
+    "Sometimes we treat temptation like a surprise attack.",
+    "We know we're tired, stressed, annoyed, hungry, and scrolling through something that makes us angry, and then we're shocked when our self-control disappears.",
+    "Paul tells us to walk by the Spirit.",
+    "Walking implies direction and continual movement. It isn't one giant spiritual moment that fixes everything forever. It's a daily dependence on the Holy Spirit.",
+    "This is why what we put into our minds matters.",
+    "What we watch matters. What we listen to matters. What we repeatedly think about matters. Who we spend time with matters.",
+    "We can't expect to constantly feed our flesh and then be surprised when our flesh is loud.",
+    "Instead, we need to intentionally feed our minds with God's truth and cultivate a life that keeps turning toward Christ.",
+    "That doesn't mean temptation disappears.",
+    "It means we aren't powerless against it.",
+    "Today, ask the Holy Spirit to help you recognize where you are most vulnerable.",
+    "Then make one practical change.",
+    "Maybe put the phone away. Maybe avoid the account that always makes you jealous. Maybe stop entertaining the thought you've been rehearsing.",
+    "Walking with the Spirit happens one step at a time."
+  ],
+  prayer: "Holy Spirit, help me walk in step with You today. Give me wisdom to recognize temptation and strength to turn away from what pulls my heart away from Christ. Amen."
+},
+{
+  id: 60,
+  scripture: "But seek first the kingdom of God and his righteousness, and all these things will be added to you.",
+  ref: "Matthew 6:33",
+  paragraphs: [
+    "There it is. The verse that sounds wonderful until we realize Jesus actually meant it.",
+    "Seek first.",
+    "Not seek God somewhere around the middle of the day after everything else has been handled.",
+    "Not seek God if there happens to be leftover time.",
+    "First.",
+    "Jesus isn't saying that every Christian has to wake up at 4:00 a.m. and spend two uninterrupted hours reading Scripture before the children wake up. Some seasons of life simply don't work that way.",
+    "But He is teaching us what belongs at the center.",
+    "The issue isn't whether you have five minutes or fifty. The issue is whether God is being treated as essential or optional.",
+    "If you can spend thirty minutes scrolling before you have five minutes for Scripture, that's worth noticing.",
+    "If you can find time to research something you are curious about but can't seem to find time to hear from the God who created you, that's worth examining too.",
+    "And this isn't about guilt.",
+    "It's about treasure.",
+    "We make time for what we believe is valuable.",
+    "So seek Him.",
+    "Maybe today that looks like five quiet minutes before everyone wakes up. Maybe it happens during naptime. Maybe it happens in the car with an audio Bible. Maybe it happens after the kids go to bed.",
+    "Start where you are.",
+    "Open the Word.",
+    "Seek first the kingdom.",
+    "And let everything else find its proper place."
+  ],
+  prayer: "Father, help me seek Your kingdom first. Rearrange my priorities so that time with You is not whatever is left over. Give me a hunger for Your Word and a heart that treasures You above everything else. Amen."
+},
+{
+  id: 61,
+  scripture: "I sought the Lord, and he answered me and delivered me from all my fears.",
+  ref: "Psalm 34:4",
+  paragraphs: [
+    "Fear has a funny way of making itself useful. It tells us that if we worry enough, we are somehow preparing ourselves. If I think through every possible bad outcome, maybe I can prevent one of them.",
+    "Unfortunately, our brains did not get the memo that worrying is not actually a superpower.",
+    "David says, 'I sought the Lord, and he answered me and delivered me from all my fears.'",
+    "Notice that David didn't say he figured everything out. He sought the Lord.",
+    "That's where we often get it backward. We spend an hour thinking about the problem and five minutes asking God what to do about it.",
+    "What if we reversed that?",
+    "What if the first place we took our fear was to God instead of Google, social media, our friend group, or the imaginary conversation happening entirely inside our own heads?",
+    "God may not answer every question immediately. He may not remove every difficult circumstance. But He is faithful to meet us in them.",
+    "So today, name the thing you're afraid of.",
+    "Don't make it sound more spiritual than it is. Tell God exactly what you're afraid will happen.",
+    "Then remind yourself who is holding the future.",
+    "You don't need to know what tomorrow holds when you know who holds tomorrow."
+  ],
+  prayer: "Father, You know the fears I carry. Help me seek You before I run to my own solutions. Give me courage to trust You with what I cannot control. Amen."
+},
+{
+  id: 62,
+  scripture: "A fool gives full vent to his spirit, but a wise man quietly holds it back.",
+  ref: "Proverbs 29:11",
+  paragraphs: [
+    "Have you ever been angry and thought, 'I just need to get this out'?",
+    "We can treat our emotions like a shaken soda bottle. Just open the lid and let everything explode because apparently that's healthier.",
+    "Except Scripture gives us a different picture of wisdom.",
+    "A fool gives full vent to his spirit, but a wise person exercises restraint.",
+    "That doesn't mean emotions are bad. Anger can tell us that something matters. Sadness can reveal loss. Fear can alert us to danger.",
+    "But emotions are terrible drivers.",
+    "They can sit in the passenger seat. They don't get to grab the steering wheel.",
+    "Sometimes the wisest thing you can do when you're angry is wait.",
+    "Don't send the text yet.",
+    "Don't make the announcement.",
+    "Don't post the paragraph you've been composing in your head.",
+    "Take it to God first.",
+    "By the time you've prayed, cooled down, and looked at the situation through Scripture, you may still need to address it—but you will probably do it very differently.",
+    "Self-control isn't pretending you aren't angry.",
+    "It's refusing to let anger decide what you do next."
+  ],
+  prayer: "Lord, give me self-control when my emotions are strong. Help me pause before I speak or act and respond in a way that honors You. Amen."
+},
+{
+  id: 63,
+  scripture: "My sheep hear my voice, and I know them, and they follow me.",
+  ref: "John 10:27",
+  paragraphs: [
+    "There are a lot of voices competing for our attention.",
+    "Your phone has notifications. Social media has opinions. The news has breaking news about the breaking news. Friends have advice. Family has advice. And somewhere in the middle of all of that, Jesus says, 'My sheep hear my voice.'",
+    "The question is: Are we listening?",
+    "We can't recognize a voice we never spend time hearing.",
+    "If the only time we open Scripture is when we're in crisis, we're missing the opportunity to become familiar with the voice of our Shepherd in ordinary life.",
+    "This is why consistency matters.",
+    "Not because God is keeping attendance like a disappointed school principal, but because His Word shapes us over time.",
+    "The more we know Scripture, the more quickly we recognize when something doesn't sound like Him.",
+    "Someone can tell you, 'God would never ask you to forgive that person,' and Scripture can answer.",
+    "Someone can tell you, 'You need this thing to be happy,' and Scripture can answer.",
+    "Someone can tell you, 'Follow your heart,' and Scripture can very politely remind you that your heart needs guidance too.",
+    "Stay close to the Shepherd.",
+    "Learn His voice."
+  ],
+  prayer: "Jesus, help me know Your voice through Your Word. Give me discernment to recognize what is true and courage to follow You when other voices are pulling me somewhere else. Amen."
+},
+{
+  id: 64,
+  scripture: "It is better to take refuge in the Lord than to trust in man.",
+  ref: "Psalm 118:8",
+  paragraphs: [
+    "We love having someone who understands us.",
+    "Someone we can call. Someone who will listen. Someone who knows the whole story without requiring us to explain every detail.",
+    "Good friendships are a gift from God.",
+    "But people make terrible gods.",
+    "Even the best friend will disappoint you eventually. Not because they are terrible, but because they are human. They get tired. They misunderstand. They have their own problems. Sometimes they say the wrong thing.",
+    "Psalm 118 reminds us that our ultimate refuge is the Lord.",
+    "That's important because we can accidentally put expectations on people that only God can fulfill.",
+    "We expect our spouse to always understand us. Our friends to always show up. Our family to always approve. Our church to always get everything right.",
+    "And when they don't, we're crushed.",
+    "People are gifts.",
+    "God is our refuge.",
+    "There's a difference.",
+    "Today, thank God for the people He has placed in your life—but don't ask them to be what only He can be."
+  ],
+  prayer: "Father, thank You for the people You have given me. Help me love them without placing on them the expectations that belong only to You. Be my refuge and security. Amen."
+},
+{
+  id: 65,
+  scripture: "Blessed are the merciful, for they shall receive mercy.",
+  ref: "Matthew 5:7",
+  paragraphs: [
+    "Mercy sounds beautiful when we're the ones receiving it.",
+    "It's considerably harder when we're the ones who have been wronged.",
+    "We want mercy for our mistakes and justice for everyone else's.",
+    "We want people to understand why we snapped, but we would like a detailed explanation for why someone else snapped at us.",
+    "Jesus calls His followers to be merciful.",
+    "That doesn't mean pretending sin doesn't matter. It means remembering how much mercy we ourselves have received.",
+    "Every Christian is standing because of grace.",
+    "That doesn't make other people's wrongdoing insignificant. It puts our response into perspective.",
+    "When someone fails us, we can seek justice where appropriate while refusing to cultivate bitterness.",
+    "We can forgive because Christ has forgiven us.",
+    "Sometimes forgiveness is not a feeling. It's a decision we have to bring before God repeatedly.",
+    "If you are struggling to forgive someone today, don't fake it.",
+    "Bring the hurt to God.",
+    "Tell Him what happened.",
+    "Ask Him to help you release your desire for revenge and trust Him with justice.",
+    "Mercy doesn't say, 'What happened was okay.'",
+    "Mercy says, 'I will not allow what happened to own my heart.'"
+  ],
+  prayer: "Lord, thank You for the mercy You have shown me through Christ. Help me extend mercy to others without excusing sin, and help me trust You with the wrongs I cannot fix myself. Amen."
+},
+{
+  id: 66,
+  scripture: "Let us not grow weary of doing good, for in due season we will reap, if we do not give up.",
+  ref: "Galatians 6:9",
+  paragraphs: [
+    "Some of the hardest work in life is work where you don't immediately see results.",
+    "You teach the same lesson again.",
+    "You clean the same room again.",
+    "You pray for the same person again.",
+    "You try to be patient again.",
+    "You explain the same thing to your child again.",
+    "At some point you start wondering, 'Is any of this actually doing anything?'",
+    "Paul tells us not to grow weary of doing good.",
+    "That's because faithfulness often feels ordinary before it becomes fruitful.",
+    "A farmer doesn't plant a seed in the morning and dig it up that afternoon because nothing happened.",
+    "He waits.",
+    "There are things you are doing today that may not bear visible fruit for years.",
+    "Your prayers may matter in ways you never see.",
+    "Your faithfulness may shape someone who never tells you.",
+    "Your obedience may influence your children more than you realize.",
+    "Don't measure faithfulness only by immediate results.",
+    "Keep going.",
+    "God sees the work."
+  ],
+  prayer: "Lord, when I grow tired of doing what is right, remind me that You see what I cannot see. Give me endurance to remain faithful even when I don't see immediate results. Amen."
+},
+{
+  id: 67,
+  scripture: "The Lord is my light and my salvation; whom shall I fear?",
+  ref: "Psalm 27:1",
+  paragraphs: [
+    "Fear loves questions.",
+    "What if this happens? What if that goes wrong? What if they don't like me? What if I fail? What if I make the wrong decision?",
+    "And if we're not careful, we can spend so much time answering imaginary questions that we forget the truth we already know.",
+    "David asks, 'Whom shall I fear?'",
+    "He isn't pretending danger doesn't exist. He is reminding himself that God is greater than what threatens him.",
+    "Sometimes courage isn't the absence of fear.",
+    "Sometimes courage is saying, 'I am afraid, but God is still with me.'",
+    "You can be nervous and obedient.",
+    "You can be uncertain and faithful.",
+    "You can be scared and still take the next right step.",
+    "So when fear starts asking you a hundred questions today, answer with Scripture.",
+    "God is my light.",
+    "God is my salvation.",
+    "God is my stronghold.",
+    "I don't have to be fearless to be faithful."
+  ],
+  prayer: "Father, when fear rises in me, remind me that You are greater than anything I face. Help me take the next faithful step even when I feel afraid. Amen."
+},
+{
+  id: 68,
+  scripture: "Let your gentleness be known to everyone. The Lord is near.",
+  ref: "Philippians 4:5",
+  paragraphs: [
+    "Gentleness can sound like weakness in a world that rewards being loud.",
+    "Speak up. Make your point. Don't let anyone walk over you. Make sure everyone knows where you stand.",
+    "But Scripture tells believers to let their gentleness be known.",
+    "Gentleness isn't weakness.",
+    "Jesus was gentle and yet He was never afraid of truth. He confronted hypocrisy. He overturned tables. He spoke hard words when necessary.",
+    "Gentleness is strength under control.",
+    "It's choosing not to use the full force of your emotions simply because you have the ability to.",
+    "And the people closest to us often get the least gentleness from us.",
+    "We can be sweet to strangers and then become courtroom attorneys in our own kitchens.",
+    "Today, let your family experience your gentleness.",
+    "Let the cashier experience it.",
+    "Let the person who made a mistake experience it.",
+    "Let the person who disagrees with you experience it.",
+    "You don't have to be loud to be strong."
+  ],
+  prayer: "Lord Jesus, make my gentleness visible to the people around me. Give me strength under control and help me respond with kindness even when I have every opportunity to be harsh. Amen."
+},
+{
+  id: 69,
+  scripture: "In peace I will both lie down and sleep; for you alone, O Lord, make me dwell in safety.",
+  ref: "Psalm 4:8",
+  paragraphs: [
+    "Some of us don't just go to bed. We hold a committee meeting in our heads first.",
+    "Did I lock the door? What about tomorrow? Did I respond to that text? What if that thing happens? Should I have said something differently? Why did I remember that embarrassing thing from 2009 at exactly 11:47 p.m.?",
+    "Our bodies are tired while our minds are apparently preparing for a marathon.",
+    "David says, 'In peace I will both lie down and sleep.'",
+    "Why?",
+    "Because his security is ultimately in God.",
+    "Sleep is an act of trust.",
+    "When we sleep, we acknowledge that the world continues without our supervision.",
+    "God doesn't clock out when we do.",
+    "He doesn't need us to stay awake mentally solving every problem.",
+    "Tonight, before bed, give God your unfinished business.",
+    "The conversation you don't know how to handle.",
+    "The financial concern.",
+    "The decision you're waiting on.",
+    "The thing you wish you could fix.",
+    "You can pray about it and then sleep.",
+    "God will still be God in the morning."
+  ],
+  prayer: "Father, help me release the things I cannot control. Give me peaceful rest and remind me that You remain awake and faithful while I sleep. Amen."
+},
+{
+  id: 70,
+  scripture: "If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness.",
+  ref: "1 John 1:9",
+  paragraphs: [
+    "We are remarkably creative when it comes to avoiding the words, 'I was wrong.'",
+    "Maybe I was tired.",
+    "Maybe they deserved it.",
+    "Maybe if they hadn't done that first, I wouldn't have reacted that way.",
+    "Maybe I technically didn't lie; I simply left out several important facts.",
+    "Sin loves a lawyer.",
+    "But Scripture gives us something better than excuses: confession.",
+    "Confession means agreeing with God about our sin.",
+    "Not minimizing it. Not blaming someone else. Not explaining it until it sounds reasonable.",
+    "Just bringing it into the light.",
+    "And look at what God promises: forgiveness and cleansing.",
+    "That means you don't have to spend the rest of your day punishing yourself for something you've genuinely confessed.",
+    "Repentance isn't self-hatred.",
+    "It's turning back toward God.",
+    "So if the Holy Spirit is bringing something to mind today, don't run from it.",
+    "Confess it.",
+    "Receive His forgiveness.",
+    "Then walk forward in obedience.",
+    "Grace doesn't tell us our sin doesn't matter.",
+    "Grace tells us we don't have to hide it."
+  ],
+  prayer: "Father, give me honesty about my sin. Help me confess without excuses, receive Your forgiveness, and turn away from what dishonors You. Thank You for Your cleansing grace. Amen."
+},
+{
+  id: 71,
+  scripture: "Whoever is slow to anger is better than the mighty, and he who rules his spirit than he who takes a city.",
+  ref: "Proverbs 16:32",
+  paragraphs: [
+    "We tend to think strength means being able to control other things.",
+    "Control the situation. Control the schedule. Control the conversation. Control the outcome.",
+    "Proverbs says something very different.",
+    "The person who rules his own spirit is stronger than the person who conquers a city.",
+    "That's quite a statement.",
+    "Because self-control isn't very flashy.",
+    "Nobody throws you a parade because you didn't yell at someone.",
+    "Nobody gives you a trophy because you paused before sending the angry text.",
+    "But heaven sees obedience that nobody else notices.",
+    "Maybe your victory today will be incredibly ordinary.",
+    "You will feel anger rise, and you will choose patience.",
+    "You'll want to complain, and you'll choose gratitude.",
+    "You'll want to say something cutting, and you'll keep your mouth shut.",
+    "Those moments matter.",
+    "The strongest person in the room isn't necessarily the loudest.",
+    "Sometimes strength looks like quietly surrendering your reaction to Christ."
+  ],
+  prayer: "Lord, help me rule my own spirit. Give me self-control when I am angry, frustrated, or tempted to react. Make me stronger in obedience than I am in my emotions. Amen."
+},
+{
+  id: 72,
+  scripture: "The Lord will fight for you, and you have only to be silent.",
+  ref: "Exodus 14:14",
+  paragraphs: [
+    "We like to fight our own battles.",
+    "Sometimes we fight them out loud. Sometimes we fight them in our heads while taking a shower and delivering an absolutely flawless argument to someone who isn't even there.",
+    "Moses told Israel, 'The Lord will fight for you.'",
+    "There are times when obedience means acting. There are also times when obedience means waiting.",
+    "Waiting feels passive, but biblical waiting isn't doing nothing. It is trusting God while refusing to take matters into our own hands.",
+    "Maybe you're desperate to defend yourself.",
+    "Maybe you want someone to finally understand your side.",
+    "Maybe you're tempted to retaliate because it feels like nobody else will make things right.",
+    "Before you act, ask God whether He is asking you to fight—or to trust.",
+    "Sometimes silence isn't weakness.",
+    "Sometimes silence is faith.",
+    "You can let God handle something without pretending it doesn't hurt.",
+    "You can acknowledge injustice without becoming consumed by revenge.",
+    "God sees what you cannot fix."
+  ],
+  prayer: "Father, help me know when to act and when to wait. When I am tempted to fight for myself, remind me that You see every injustice and are perfectly capable of handling what I cannot. Amen."
+},
+{
+  id: 73,
+  scripture: "As a man thinks in his heart, so is he.",
+  ref: "Proverbs 23:7",
+  paragraphs: [
+    "What we repeatedly think about eventually starts showing up in how we live.",
+    "If you constantly tell yourself, 'I'm not enough,' you'll start living like you're not enough.",
+    "If you constantly tell yourself, 'Everyone is against me,' you'll start interpreting everything as evidence.",
+    "If you constantly tell yourself, 'I have to control everything,' you'll become exhausted trying to control everything.",
+    "Our thoughts matter.",
+    "That's why Scripture doesn't simply tell us what to do. It teaches us how to think.",
+    "God's Word corrects the lies we have quietly accepted.",
+    "You may not be able to control the first thought that enters your mind, but you can learn not to build a house there.",
+    "A thought can knock on the door without getting invited to dinner.",
+    "So today, pay attention.",
+    "What have you been repeatedly telling yourself?",
+    "Then compare it with Scripture.",
+    "If your thoughts contradict God's truth, don't keep rehearsing them simply because you've thought them for years.",
+    "Let the Word reshape your thinking."
+  ],
+  prayer: "Lord, help me recognize the lies I have believed and replace them with Your truth. Renew my mind and teach me to think in ways that honor You. Amen."
+},
+{
+  id: 74,
+  scripture: "Wait for the Lord; be strong, and let your heart take courage; wait for the Lord!",
+  ref: "Psalm 27:14",
+  paragraphs: [
+    "Waiting is one of the few spiritual disciplines nobody puts on a cute coffee mug.",
+    "We like action. Waiting feels like nothing is happening.",
+    "But Scripture repeatedly tells us to wait for the Lord.",
+    "Waiting doesn't mean God has forgotten you.",
+    "It means you don't have the information or timing you want yet.",
+    "And that can be incredibly uncomfortable.",
+    "We want the answer now. The job now. The relationship now. The healing now. The clarity now.",
+    "But sometimes God uses waiting to do something in us that we would have missed if He had simply handed us what we wanted.",
+    "Waiting exposes our control.",
+    "It reveals where we place our security.",
+    "It teaches patience.",
+    "It forces us to trust when we cannot see.",
+    "If you're waiting for something today, don't waste the waiting.",
+    "Use it to know God.",
+    "You don't have to understand why you're waiting to remain faithful while you wait."
+  ],
+  prayer: "Lord, teach me to wait well. When I want answers immediately, give me patience and courage to trust Your timing. Help me remember that waiting does not mean You are absent. Amen."
+},
+{
+  id: 75,
+  scripture: "Whoever walks in integrity walks securely, but he who makes his ways crooked will be found out.",
+  ref: "Proverbs 10:9",
+  paragraphs: [
+    "Integrity is who you are when nobody is watching.",
+    "And thankfully, nobody is watching every moment because that would be exhausting.",
+    "But God is.",
+    "Integrity means our private lives and public lives are becoming more and more alike.",
+    "It's easy to look godly when people are looking.",
+    "The real test comes when you could get away with something.",
+    "Will you tell the truth when lying would be easier?",
+    "Will you close the tab?",
+    "Will you return the money?",
+    "Will you admit the mistake?",
+    "Will you resist the temptation when nobody would ever know?",
+    "Those choices may seem small, but they reveal something important about our hearts.",
+    "Holiness isn't just what we do on Sunday.",
+    "It's what we do when the room is empty.",
+    "And here's the beautiful thing: you don't have to live with the constant fear of being exposed when you're walking in the light.",
+    "You can be honest.",
+    "You can repent.",
+    "You can stop hiding.",
+    "Integrity brings freedom."
+  ],
+  prayer: "Lord, make me a woman of integrity. Help my private life reflect my public confession of faith and give me courage to choose what is right even when nobody else will know. Amen."
+},
+{
+  id: 76,
+  scripture: "A friend loves at all times, and a brother is born for adversity.",
+  ref: "Proverbs 17:17",
+  paragraphs: [
+    "Everybody loves a friend who is available for coffee when life is good.",
+    "The real test of friendship comes when life gets messy.",
+    "When someone is crying. When plans change. When somebody needs help moving. When the phone call comes at an inconvenient time.",
+    "Biblical friendship isn't built around convenience.",
+    "A friend loves at all times.",
+    "That doesn't mean saying yes to everything or having no boundaries. It means being willing to love someone when loving them costs something.",
+    "And this is something we can practice in ordinary ways.",
+    "Check on the friend who has gone quiet.",
+    "Send the message.",
+    "Pray for someone and tell them you prayed.",
+    "Show up when you can.",
+    "Sometimes the most spiritual thing you can do today is notice someone else.",
+    "We don't need a giant ministry platform to love people.",
+    "We need eyes open enough to see the people God has already put around us."
+  ],
+  prayer: "Lord, make me a faithful friend. Help me notice the people around me and love them well, especially when it costs me time or convenience. Amen."
+},
+{
+  id: 77,
+  scripture: "Do not let the sun go down on your anger.",
+  ref: "Ephesians 4:26",
+  paragraphs: [
+    "Some of us are very talented at holding onto an offense.",
+    "We don't necessarily say anything. We just remember.",
+    "Oh, we remember everything.",
+    "We remember exactly what they said, exactly how they said it, what day it happened, and probably what shirt they were wearing.",
+    "Paul tells us not to let the sun go down on our anger.",
+    "That doesn't mean every conflict must be completely resolved before bedtime. Some conversations require time, wisdom, and maybe a good night's sleep before anybody should speak again.",
+    "It means don't nurture anger.",
+    "Don't feed it.",
+    "Don't replay it until it becomes part of your identity.",
+    "Anger that isn't surrendered to God can become bitterness.",
+    "And bitterness doesn't punish the other person nearly as much as it poisons us.",
+    "If someone has hurt you, bring it to God.",
+    "Forgiveness may take time, especially when the wound is deep. But don't make bitterness your home.",
+    "You can go to bed without having solved everything.",
+    "You just don't have to go to bed planning revenge."
+  ],
+  prayer: "Lord, help me deal honestly with my anger. Keep bitterness from taking root in me and teach me to forgive as You have forgiven me. Give me wisdom about what needs to be addressed and what I need to surrender to You. Amen."
+},
+{
+  id: 78,
+  scripture: "The eyes of the Lord are in every place, keeping watch on the evil and the good.",
+  ref: "Proverbs 15:3",
+  paragraphs: [
+    "We sometimes live as though God only sees the big spiritual moments.",
+    "Church. Bible study. Prayer. Worship.",
+    "But God sees Tuesday afternoon too.",
+    "He sees how you treat your family when you're tired. He sees what you do when nobody is watching. He sees the thought you entertained but never said aloud. He sees the kindness nobody thanked you for.",
+    "That can sound intimidating, but for the believer it can also be deeply comforting.",
+    "God sees.",
+    "He sees the work that feels invisible.",
+    "He sees the mother who keeps serving when nobody notices.",
+    "He sees the woman who quietly chooses obedience.",
+    "He sees the tears nobody else knows about.",
+    "He sees the prayer you whispered when you didn't have the energy for anything else.",
+    "You don't need to convince God that you matter.",
+    "He already sees you completely.",
+    "So live today before His eyes rather than the eyes of everyone else."
+  ],
+  prayer: "Father, thank You that You see every part of my life. Help me live with an awareness of Your presence and find comfort in knowing that nothing faithful is hidden from You. Amen."
+},
+{
+  id: 79,
+  scripture: "Whatever you do, do all to the glory of God.",
+  ref: "1 Corinthians 10:31",
+  paragraphs: [
+    "We have a tendency to divide life into spiritual things and regular things.",
+    "Prayer is spiritual. Bible reading is spiritual. Church is spiritual.",
+    "Laundry? Not so much.",
+    "But Paul says whatever you do, do it for the glory of God.",
+    "Whatever.",
+    "That means the ordinary parts of your day belong to Him too.",
+    "You can glorify God while washing dishes. While working. While changing diapers. While homeschooling. While cooking dinner. While answering emails. While taking care of a family member.",
+    "The question becomes less, 'Is this spiritual?' and more, 'How can I honor Christ in this?'",
+    "Maybe you do the work with gratitude instead of resentment.",
+    "Maybe you serve someone when nobody notices.",
+    "Maybe you choose patience when irritation would be easier.",
+    "Maybe you stop complaining about the task and recognize that God has given you this moment.",
+    "Your whole life belongs to Christ.",
+    "Not just the parts that look impressive."
+  ],
+  prayer: "Lord, help me glorify You in everything I do today. Teach me to see ordinary responsibilities as opportunities to worship You through faithfulness, gratitude, and love. Amen."
+},
+{
+  id: 80,
+  scripture: "Draw near to God, and he will draw near to you.",
+  ref: "James 4:8",
+  paragraphs: [
+    "Maybe you've been waiting for the perfect time to get serious about spending time with God.",
+    "When the kids are older.",
+    "When the baby sleeps through the night.",
+    "When the house is clean.",
+    "When work slows down.",
+    "When you're less tired.",
+    "When you finally figure out how to make mornings work.",
+    "Here's the problem: there will always be another season.",
+    "James gives us a very simple invitation: draw near to God.",
+    "Not someday.",
+    "Today.",
+    "You don't need a perfect routine to begin.",
+    "You don't need a beautiful Bible study setup with a candle, matching journal, perfectly sharpened pencil, and a cup of coffee positioned at the exact aesthetic angle.",
+    "You need an open Bible and a willing heart.",
+    "Start with five minutes.",
+    "Read slowly.",
+    "Pray honestly.",
+    "Come back tomorrow.",
+    "Then come back again.",
+    "Over time, those small decisions become a life that is oriented toward Christ.",
+    "And maybe that's what we've been missing all along.",
+    "We keep waiting for enough time to begin when God is simply inviting us to draw near with the time we have.",
+    "Five minutes is not the finish line.",
+    "It's an invitation.",
+    "Come near."
+  ],
+  prayer: "Father, I want to draw near to You. Help me stop waiting for the perfect circumstances and start faithfully seeking You with the time You have given me. Grow my desire for Your Word and make Your presence the treasure of my day. Amen."
+},
+{
+  id: 81,
+  scripture: "My soul, wait in silence for God alone, for my hope is from him.",
+  ref: "Psalm 62:5",
+  paragraphs: [
+    "There is a difference between being quiet and actually being still before God.",
+    "We can sit in a perfectly quiet room while our minds are running a marathon.",
+    "Did I remember to email her? What are we having for dinner? Why did I say that yesterday? Should I buy that thing? What if something goes wrong? Maybe I should just check my phone really quick.",
+    "And somehow we call that rest.",
+    "David tells his own soul to wait in silence for God alone.",
+    "I love that because apparently sometimes we have to talk to our own souls and tell them to calm down.",
+    "He reminds himself where his hope comes from.",
+    "Not from having every problem solved.",
+    "Not from knowing what happens next.",
+    "Not from getting everyone to approve of him.",
+    "His hope comes from God.",
+    "We often try to create peace by controlling our circumstances. But there will always be another circumstance to control.",
+    "The house will get messy again.",
+    "Someone will misunderstand you again.",
+    "Another decision will need to be made.",
+    "Another bill will arrive.",
+    "Another thing will break.",
+    "If our peace depends on everything around us being peaceful, we will spend a lot of our lives waiting for a peace that never comes.",
+    "Instead, we can learn to quiet our souls before God.",
+    "For these five minutes, you don't need to solve anything.",
+    "You don't need to research anything.",
+    "You don't even need to figure out what you're going to do next.",
+    "Just remember where your hope comes from."
+  ],
+  prayer: "Father, quiet my restless heart. Help me stop looking to circumstances, people, or my own ability to control things for my peace. Teach me to wait for You and remember that my hope comes from You alone. Amen."
+},
+{
+  id: 82,
+  scripture: "A soft answer turns away wrath, but a harsh word stirs up anger.",
+  ref: "Proverbs 15:1",
+  paragraphs: [
+    "Have you ever noticed how quickly one sentence can turn a normal conversation into a full-blown event?",
+    "Someone says something slightly irritating.",
+    "You respond with something slightly more irritating.",
+    "They respond with something considerably more irritating.",
+    "And five minutes later, neither person remembers how the whole thing started.",
+    "Proverbs tells us that a soft answer turns away wrath.",
+    "Not a clever answer.",
+    "Not the answer that proves you are right.",
+    "A soft answer.",
+    "That takes self-control.",
+    "It means sometimes lowering the temperature instead of matching it.",
+    "It means asking, 'Did you mean that the way it sounded?' instead of immediately assuming the worst.",
+    "It means remembering that winning an argument and loving someone are not always the same thing.",
+    "And sometimes you really are right.",
+    "You can still be right without being harsh.",
+    "Truth doesn't become more truthful because we deliver it angrily.",
+    "Today, pay attention to your tone.",
+    "Your words may be saying one thing while your tone is preaching something entirely different."
+  ],
+  prayer: "Lord, put a guard over my mouth today. Help me answer gently, especially when I am irritated, and give me wisdom to speak truth without unnecessary harshness. Amen."
+},
+{
+  id: 83,
+  scripture: "The Lord is near to the brokenhearted and saves the crushed in spirit.",
+  ref: "Psalm 34:18",
+  paragraphs: [
+    "There is a strange temptation to hide from God when we're hurting.",
+    "We may think we need to clean ourselves up emotionally before we come to Him.",
+    "But Scripture says the Lord is near to the brokenhearted.",
+    "Near.",
+    "Not standing across the room waiting for you to stop crying.",
+    "Near.",
+    "God is not intimidated by your grief.",
+    "You don't have to pray pretty prayers when your heart is broken.",
+    "You can say, 'God, I don't understand this.'",
+    "You can say, 'I'm angry.'",
+    "You can say, 'I don't know what to do.'",
+    "You can sit quietly because you don't even have words.",
+    "He already knows.",
+    "Sometimes we think faith means pretending everything is okay.",
+    "Biblical faith means bringing what isn't okay to the One who is faithful.",
+    "If your heart is hurting today, don't run away from God because you don't feel spiritual enough.",
+    "Run toward Him.",
+    "He is near."
+  ],
+  prayer: "Father, thank You that You are near when my heart is hurting. Help me bring my grief honestly to You and trust You even when I don't understand what You are doing. Amen."
+},
+{
+  id: 84,
+  scripture: "Whatever is not of faith is sin.",
+  ref: "Romans 14:23",
+  paragraphs: [
+    "We don't usually think of indecision as a spiritual issue.",
+    "Sometimes we just want to make absolutely sure we're making the perfect decision.",
+    "So we research.",
+    "Then research the research.",
+    "Then ask three people.",
+    "Then ask another person because the first three gave answers we didn't like.",
+    "Then search online for seventeen more opinions.",
+    "At some point, we aren't seeking wisdom anymore. We're seeking certainty.",
+    "And certainty is something only God can ultimately give us.",
+    "Faith means trusting God when we don't have every answer.",
+    "That doesn't mean making careless decisions. Scripture tells us to seek wisdom, counsel, and understanding.",
+    "But there comes a point when we have prayed, sought wise counsel, considered Scripture, and still don't know exactly what will happen.",
+    "That's where faith begins to matter.",
+    "You may not know whether the decision will work out.",
+    "You can know God will still be with you.",
+    "Sometimes obedience isn't having certainty.",
+    "It's trusting God enough to move forward without it."
+  ],
+  prayer: "Lord, give me wisdom when I need to make decisions and faith when I cannot know the outcome. Help me trust You instead of demanding certainty before I obey. Amen."
+},
+{
+  id: 85,
+  scripture: "Let every person be quick to hear, slow to speak, slow to anger.",
+  ref: "James 1:19",
+  paragraphs: [
+    "Apparently James really wanted us to listen because he says it again.",
+    "Quick to hear.",
+    "Slow to speak.",
+    "Slow to anger.",
+    "Meanwhile, we live in a world where everyone has an opinion and everyone would like to share it immediately.",
+    "And let's be honest: sometimes we aren't even listening to understand. We're listening for our opening.",
+    "We're waiting for the three-second pause where we can jump in with our response.",
+    "But listening is an act of love.",
+    "When you truly listen to someone, you're telling them, 'You matter enough for me to hear you.'",
+    "That doesn't mean you agree with everything they say.",
+    "It means you care enough to understand before you respond.",
+    "This can change marriages.",
+    "Friendships.",
+    "Parenting.",
+    "Church relationships.",
+    "Even that conversation with the person who is driving seventeen miles under the speed limit.",
+    "Today, practice listening.",
+    "Don't plan your response while the other person is talking.",
+    "Actually hear them.",
+    "You might be surprised what you learn."
+  ],
+  prayer: "Lord, make me a better listener. Help me slow down, understand before responding, and treat the people around me with patience and love. Amen."
+},
+{
+  id: 86,
+  scripture: "The fear of man lays a snare, but whoever trusts in the Lord is safe.",
+  ref: "Proverbs 29:25",
+  paragraphs: [
+    "The fear of people can control an astonishing amount of our lives.",
+    "What will they think?",
+    "Will they be offended?",
+    "Will they think I'm weird?",
+    "What if they disagree?",
+    "What if they don't like me anymore?",
+    "And sometimes we don't realize how much our decisions are being shaped by the desire for approval.",
+    "Scripture calls the fear of man a snare.",
+    "A trap.",
+    "Because people were never designed to carry the weight of our identity.",
+    "If your peace depends on everyone approving of you, you will spend your entire life trying to manage other people's opinions.",
+    "And good luck with that.",
+    "People can't even agree on whether pineapple belongs on pizza.",
+    "They certainly aren't going to agree on you.",
+    "Our security has to come from God.",
+    "When you know who you belong to, you can handle being misunderstood.",
+    "You can say no.",
+    "You can obey God even when someone doesn't like it.",
+    "You can stop performing for approval.",
+    "The goal isn't to make everyone happy.",
+    "The goal is to be faithful."
+  ],
+  prayer: "Lord, free me from the fear of people's opinions. Help me value Your approval above the approval of others and give me courage to obey You even when it costs me acceptance. Amen."
+},
+{
+  id: 87,
+  scripture: "Cast your burden on the Lord, and he will sustain you.",
+  ref: "Psalm 55:22",
+  paragraphs: [
+    "We are professional burden collectors.",
+    "Someone else's problem? We'll carry it.",
+    "Tomorrow's problem? We'll carry that too.",
+    "Something that happened three years ago? Absolutely. Put it right on the pile.",
+    "Then we wonder why we're exhausted.",
+    "Psalm 55 tells us to cast our burdens on the Lord.",
+    "Cast them.",
+    "Not organize them neatly and keep them in a folder labeled 'Things I Will Worry About Later.'",
+    "Give them to Him.",
+    "That doesn't mean we stop caring. It means we stop pretending we are strong enough to carry everything ourselves.",
+    "Maybe your burden is a child you're worried about.",
+    "Maybe it's your marriage.",
+    "Maybe it's finances.",
+    "Maybe it's a relationship that feels broken.",
+    "Maybe it's something you don't even know how to explain.",
+    "Bring it to God.",
+    "And when you find yourself picking it back up twenty minutes later, give it to Him again.",
+    "Sometimes casting our burdens is less like throwing something once and more like repeatedly refusing to carry what belongs in God's hands."
+  ],
+  prayer: "Father, I give You the burdens I have been carrying. When I am tempted to pick them back up, remind me that You are able to sustain me and care for what I cannot control. Amen."
+},
+{
+  id: 88,
+  scripture: "Do everything without grumbling or disputing.",
+  ref: "Philippians 2:14",
+  paragraphs: [
+    "This verse feels particularly personal when you're doing the dishes for the third time in one day.",
+    "Or cleaning up the same mess you cleaned up yesterday.",
+    "Or answering the same question for the eighth time.",
+    "Or doing something you volunteered to do and suddenly wondering why you ever had the audacity to volunteer.",
+    "Paul says, 'Do everything without grumbling.'",
+    "Everything.",
+    "That's a very inconvenient word.",
+    "We tend to think complaining is harmless because we're just saying how we feel.",
+    "But constant complaining trains our hearts to focus on what is wrong instead of recognizing what God has given us.",
+    "Gratitude doesn't mean every task is enjoyable.",
+    "It means we recognize that even ordinary responsibilities can be received as gifts and opportunities to serve.",
+    "So the next time you're tempted to complain, pause.",
+    "Thank God for the thing you're complaining about.",
+    "Not because the task is easy.",
+    "Because gratitude changes what happens inside you while you're doing it.",
+    "Sometimes the attitude needs to change before the circumstances do."
+  ],
+  prayer: "Lord, forgive me for the ways I grumble and complain. Help me cultivate gratitude and serve faithfully even when the task is ordinary, repetitive, or inconvenient. Amen."
+},
+{
+  id: 89,
+  scripture: "For where your treasure is, there your heart will be also.",
+  ref: "Matthew 6:21",
+  paragraphs: [
+    "Jesus gives us a surprisingly simple way to examine our hearts: look at what we treasure.",
+    "What gets your attention?",
+    "What gets your money?",
+    "What gets your time?",
+    "What do you think about when you have nothing else demanding your attention?",
+    "What are you constantly checking?",
+    "What are you afraid of losing?",
+    "Those things tell us something.",
+    "We can say God is our treasure, but our calendars and bank accounts sometimes give a more honest answer.",
+    "And this isn't about feeling guilty every time you enjoy something.",
+    "God gives good gifts.",
+    "The question is whether those gifts have quietly become more important than the Giver.",
+    "Maybe today you need to examine your phone.",
+    "Maybe your work.",
+    "Maybe shopping.",
+    "Maybe comfort.",
+    "Maybe approval.",
+    "Maybe even your children.",
+    "Anything good can become ultimate when we forget where it came from.",
+    "Ask God to show you what has been capturing your heart.",
+    "Then put your treasure back where it belongs."
+  ],
+  prayer: "Jesus, show me what I truly treasure. Help me enjoy the good gifts You have given me without allowing them to take the place that belongs to You. Make You my greatest treasure. Amen."
+},
+{
+  id: 90,
+  scripture: "The joy of the Lord is your strength.",
+  ref: "Nehemiah 8:10",
+  paragraphs: [
+    "Joy can feel suspicious when life is difficult.",
+    "We're tempted to think we can't be joyful until everything is fixed.",
+    "I'll be joyful when the bills are paid.",
+    "I'll be joyful when the kids stop arguing.",
+    "I'll be joyful when my schedule calms down.",
+    "I'll be joyful when I finally get eight hours of sleep.",
+    "So basically, sometime in the next century.",
+    "But biblical joy isn't dependent on perfect circumstances.",
+    "The joy of the Lord is strength because its source is God.",
+    "That doesn't mean Christians walk around smiling like nothing hurts.",
+    "We can grieve and have joy.",
+    "We can be tired and have joy.",
+    "We can have unanswered questions and still have joy.",
+    "Our joy is rooted in who God is and what He has done, not in whether today went according to plan.",
+    "So today, remember something true about God.",
+    "He is faithful.",
+    "He is good.",
+    "Christ has saved you.",
+    "You belong to Him.",
+    "Those truths don't change just because your morning was chaotic."
+  ],
+  prayer: "Lord, remind me that my joy is found in You, not in perfect circumstances. Strengthen me with the joy of knowing who You are and what You have done for me through Christ. Amen."
+},
+{
+  id: 91,
+  scripture: "A gracious woman gets honor.",
+  ref: "Proverbs 11:16",
+  paragraphs: [
+    "Grace is one of those qualities we admire in other people and then occasionally forget to practice ourselves.",
+    "We love gracious people.",
+    "They make mistakes feel less embarrassing. They give people room to grow. They don't make every little error into a federal investigation.",
+    "Being gracious doesn't mean being naive.",
+    "It means choosing kindness when harshness would be easier.",
+    "You can correct someone without humiliating them.",
+    "You can disagree without insulting them.",
+    "You can tell the truth without making someone feel like they need to crawl away and start a new life in another state.",
+    "And sometimes the person who most needs your grace today is someone in your own home.",
+    "The people closest to us get to see the least polished version of us.",
+    "They see the tired version.",
+    "The impatient version.",
+    "The 'I have said this fourteen times' version.",
+    "Grace matters there too.",
+    "Ask God to make you the kind of woman whose presence makes other people feel safe to grow."
+  ],
+  prayer: "Lord, make me gracious in the way I speak and respond to others. Help me show kindness without compromising truth and give the people closest to me the same grace You continually show me. Amen."
+},
+{
+  id: 92,
+  scripture: "The plans of the diligent lead surely to abundance, but everyone who is hasty comes only to poverty.",
+  ref: "Proverbs 21:5",
+  paragraphs: [
+    "We love quick fixes.",
+    "Quick money. Quick weight loss. Quick spiritual growth. Quick organization. Quick answers.",
+    "If someone could sell us a three-step plan to have our entire lives together by Friday, we'd probably at least click the link.",
+    "But Scripture praises diligence.",
+    "Diligence is not glamorous.",
+    "It's doing the thing again.",
+    "And again.",
+    "And again.",
+    "It is showing up when the excitement has worn off.",
+    "That applies spiritually too.",
+    "You don't become deeply rooted in God's Word because you had one amazing Bible study.",
+    "You become rooted because you keep returning.",
+    "Five minutes today.",
+    "Fifteen minutes tomorrow.",
+    "A longer study on Saturday.",
+    "A prayer while you're driving.",
+    "A verse you remember while you're washing dishes.",
+    "Little acts of faithfulness become a life.",
+    "Don't despise consistency because it isn't exciting.",
+    "Roots grow quietly."
+  ],
+  prayer: "Lord, give me diligence. Help me value faithful consistency over quick results and teach me to keep showing up in the ordinary places where You are growing me. Amen."
+},
+{
+  id: 93,
+  scripture: "My grace is sufficient for you, for my power is made perfect in weakness.",
+  ref: "2 Corinthians 12:9",
+  paragraphs: [
+    "We don't like weakness.",
+    "We would much rather be the woman who has it together.",
+    "The woman who handles everything beautifully.",
+    "The woman who never gets overwhelmed, never loses patience, never forgets anything, and somehow has dinner prepared by 4:30 every afternoon.",
+    "If that woman exists, I would like her recipe.",
+    "Paul learned something different.",
+    "God's power is made perfect in weakness.",
+    "Our weakness isn't evidence that God can't use us.",
+    "Sometimes it is the very place where we learn to depend on Him.",
+    "Maybe you're tired.",
+    "Maybe you're struggling.",
+    "Maybe you don't have the energy you wish you had.",
+    "Maybe you don't feel spiritually strong right now.",
+    "You don't have to pretend otherwise.",
+    "Bring your weakness to Christ.",
+    "His grace is sufficient.",
+    "The goal of Christianity isn't becoming so strong that we no longer need God.",
+    "It's becoming increasingly aware of how much we need Him."
+  ],
+  prayer: "Jesus, thank You that Your grace is sufficient for me. Help me stop being ashamed of my weakness and instead learn to depend on Your strength. Amen."
+},
+{
+  id: 94,
+  scripture: "Let all that you do be done in love.",
+  ref: "1 Corinthians 16:14",
+  paragraphs: [
+    "Paul manages to make Christianity sound incredibly simple with six words: 'Let all that you do be done in love.'",
+    "All.",
+    "Not just the obvious Christian things.",
+    "All.",
+    "How you answer the annoying text.",
+    "How you talk to your spouse.",
+    "How you correct your child.",
+    "How you speak about someone who isn't in the room.",
+    "How you respond to criticism.",
+    "How you interact with the cashier who is moving at approximately one item per business day.",
+    "Love isn't just a feeling.",
+    "It's a way of treating people.",
+    "Sometimes love looks like kindness.",
+    "Sometimes it looks like truth.",
+    "Sometimes it looks like patience.",
+    "Sometimes it looks like setting a boundary.",
+    "Sometimes it looks like forgiveness.",
+    "Before you speak today, ask yourself a simple question: Is what I'm about to do being shaped by love?",
+    "That question might change more conversations than we realize."
+  ],
+  prayer: "Lord, let everything I do today be shaped by love. Help me speak, serve, correct, forgive, and respond in ways that reflect the love You have shown me. Amen."
+},
+{
+  id: 95,
+  scripture: "Do not be anxious about tomorrow, for tomorrow will be anxious for itself.",
+  ref: "Matthew 6:34",
+  paragraphs: [
+    "Tomorrow has a remarkable ability to steal today's peace.",
+    "We're sitting here in Tuesday, worrying about Thursday.",
+    "Then Thursday arrives and we're worried about Saturday.",
+    "Eventually we've spent the entire week living everywhere except where our feet actually are.",
+    "Jesus tells us not to be anxious about tomorrow.",
+    "That doesn't mean we shouldn't plan. Planning is wise.",
+    "It means we don't have to emotionally live through problems that haven't happened yet.",
+    "How many imaginary disasters have we survived in our minds?",
+    "And somehow we're still here.",
+    "God gives grace for today.",
+    "Not imaginary grace for every possible future scenario.",
+    "Today's grace.",
+    "So ask yourself: What does faithfulness look like today?",
+    "Not next month.",
+    "Not five years from now.",
+    "Today.",
+    "You can deal with tomorrow when tomorrow becomes today.",
+    "Right now, God has given you this moment.",
+    "Be here."
+  ],
+  prayer: "Father, forgive me for carrying tomorrow before it arrives. Help me trust You with the future and faithfully live the day You have placed in front of me. Amen."
+},
+{
+  id: 96,
+  scripture: "A joyful heart is good medicine, but a crushed spirit dries up the bones.",
+  ref: "Proverbs 17:22",
+  paragraphs: [
+    "There is something deeply spiritual about being able to laugh.",
+    "Not because life is always funny, but because we remember that life isn't only our problems.",
+    "Sometimes we become so serious about everything that we forget to enjoy the ordinary gifts God has given us.",
+    "A funny conversation with your husband.",
+    "Your child's ridiculous question.",
+    "The dog doing something that makes absolutely no sense.",
+    "Laughing at yourself because you just walked into a room and forgot why you were there.",
+    "Joy doesn't mean ignoring suffering.",
+    "It means suffering doesn't get the final word over everything.",
+    "God created laughter.",
+    "He created beauty.",
+    "He created friendship, food, music, sunsets, babies' giggles, and those moments when your children say something so unexpectedly hilarious that you have to leave the room because you're trying not to laugh.",
+    "Receive those moments.",
+    "Thank God for them.",
+    "You don't have to feel guilty for enjoying good things.",
+    "Joy is not a distraction from God when it leads you to gratitude toward God."
+  ],
+  prayer: "Father, thank You for the gift of joy and laughter. Help me notice the good gifts You have placed in ordinary life and receive them with gratitude instead of always looking for the next problem. Amen."
+},
+{
+  id: 97,
+  scripture: "Whoever keeps his mouth and his tongue keeps himself out of trouble.",
+  ref: "Proverbs 21:23",
+  paragraphs: [
+    "There are moments when the Holy Spirit may be telling you something very simple: don't say it.",
+    "And yet we feel compelled.",
+    "We need to clarify.",
+    "We need them to know.",
+    "We need to explain our side.",
+    "We need to make sure everyone understands exactly what happened.",
+    "Sometimes you need to speak.",
+    "And sometimes wisdom looks like closing your mouth.",
+    "Not because you have nothing to say.",
+    "Because you don't need to say everything you think.",
+    "That is a skill worth practicing.",
+    "Before you repeat the story, ask: Does this need to be shared?",
+    "Before you send the text, ask: Does this need to be sent?",
+    "Before you make the joke, ask: Is this loving?",
+    "Before you correct someone, ask: Am I actually helping?",
+    "Our words can heal or wound.",
+    "And once they're out, you can't call them back.",
+    "Sometimes the most powerful sentence is the one you decided not to say."
+  ],
+  prayer: "Lord, guard my tongue. Give me wisdom to know when to speak and when to remain silent, and help my words bring grace rather than unnecessary harm. Amen."
+},
+{
+  id: 98,
+  scripture: "Trust in the Lord with all your heart, and do not lean on your own understanding.",
+  ref: "Proverbs 3:5",
+  paragraphs: [
+    "We love understanding.",
+    "If we can understand why something is happening, we feel like we can handle it.",
+    "Give me the explanation. Give me the timeline. Give me the five-year plan. Give me a diagram.",
+    "God says trust Me.",
+    "Not because understanding is bad, but because our understanding is limited.",
+    "There will be things God does that don't make sense to us.",
+    "There will be prayers that seem unanswered.",
+    "Doors that close.",
+    "Plans that change.",
+    "People who disappoint us.",
+    "Seasons that last much longer than we expected.",
+    "Trust means believing that God's wisdom is greater than ours even when His ways don't make sense from where we're standing.",
+    "You don't need to understand everything to obey.",
+    "You don't need to see the entire staircase to take the next step.",
+    "Today, identify one thing you're trying desperately to understand.",
+    "Give God permission to be God in that area.",
+    "Trust Him where you cannot understand."
+  ],
+  prayer: "Father, I trust You with the things I do not understand. Help me stop demanding answers before I obey and give me confidence that Your wisdom is greater than mine. Amen."
+},
+{
+  id: 99,
+  scripture: "Therefore encourage one another and build one another up, just as you are doing.",
+  ref: "1 Thessalonians 5:11",
+  paragraphs: [
+    "Encouragement is one of those things we assume people already know.",
+    "She knows I appreciate her.",
+    "He knows I'm proud of him.",
+    "They know I'm praying for them.",
+    "Maybe they do.",
+    "But why make people guess?",
+    "Scripture tells us to encourage one another and build one another up.",
+    "That means sometimes we need to use our words.",
+    "Tell your friend you see how hard she's working.",
+    "Tell your husband you appreciate something he did.",
+    "Tell your child you noticed their effort.",
+    "Tell someone at church that their faithfulness matters.",
+    "Send the text.",
+    "Make the phone call.",
+    "Write the note.",
+    "Encouragement costs very little but can carry someone through a difficult day.",
+    "And here's something beautiful: you don't have to wait until you feel especially inspired.",
+    "Just notice someone.",
+    "Then say something true and kind.",
+    "You might be surprised how God uses a few words."
+  ],
+  prayer: "Lord, make me an encourager. Open my eyes to the people around me who need to be reminded that they are loved, seen, and not walking alone. Give me courage to speak encouragement freely. Amen."
+},
+{
+  id: 100,
+  scripture: "I have fought the good fight, I have finished the race, I have kept the faith.",
+  ref: "2 Timothy 4:7",
+  paragraphs: [
+    "Paul's words are powerful because he isn't talking about a perfect life.",
+    "He's talking about a faithful one.",
+    "He fought.",
+    "He ran.",
+    "He kept going.",
+    "There were hardships, disappointments, suffering, rejection, and moments that certainly weren't Instagram-worthy.",
+    "But he finished.",
+    "That's what I want for us.",
+    "Not a perfect Christian life.",
+    "A faithful one.",
+    "A life where we keep coming back to Christ.",
+    "A life where we repent when we sin instead of hiding.",
+    "A life where we open God's Word even when we don't feel like it.",
+    "A life where we pray when we're afraid.",
+    "A life where we forgive when it's hard.",
+    "A life where we keep serving when nobody notices.",
+    "A life where we don't quit simply because the growth is slow.",
+    "And that's really what these five minutes are about.",
+    "They're not about checking a box.",
+    "They're not about becoming a woman who has a perfect devotional streak.",
+    "They're about learning to turn your heart toward Jesus again and again.",
+    "Some days you'll have five minutes.",
+    "Some days you'll have an hour.",
+    "Some days you'll miss completely.",
+    "When that happens, don't throw away the whole race because you missed a day.",
+    "Get back up.",
+    "Open the Word.",
+    "Keep going.",
+    "We aren't running to prove ourselves.",
+    "We're running because Christ has already made us His.",
+    "So let's keep our eyes on Him and keep moving forward."
+  ],
+  prayer: "Jesus, help me keep the faith. When I grow tired, distracted, discouraged, or discouraged by my own failures, remind me to get back up and keep following You. Help me finish the race faithfully with my eyes fixed on You. Amen."
+}
+
+   ];
+
+    function getFormattedDate() {
+      return new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    }
+
+    function init() {
+      const lastCompletedDate = localStorage.getItem('rooted_last_completed');
+      const todayDate = new Date().toDateString();
+      if (lastCompletedDate === todayDate) {
+        const count = parseInt(localStorage.getItem('rooted_total_read_count') || "0", 10);
+        const lastIndex = Math.min(Math.max(count - 1, 0), devotionals.length - 1);
+        const lastId = devotionals[lastIndex].id;
+
+        if (lastId === 90) {
+          showScreen('screen-milestone-90');
+        } else if (lastId === 100) {
+          showScreen('screen-milestone-100');
+        } else {
+          showScreen('screen-complete');
+        }
+      }
+    }
+
+    function renderDevotional(devo, isArchived = false) {
+      document.getElementById('devo-day-label').innerText = `DAY ${devo.id}`;
+      document.getElementById('devo-date-label').innerText = getFormattedDate();
+      document.getElementById('devo-scripture-text').innerText = devo.scripture;
+      document.getElementById('devo-scripture-ref').innerText = devo.ref;
+      document.getElementById('devo-content').innerHTML = devo.paragraphs.map(p => `<p>${p}</p>`).join('');
+      document.getElementById('devo-prayer').innerText = devo.prayer;
+
+      const completeBtn = document.getElementById('devo-complete-btn');
+      if (isArchived) {
+        completeBtn.innerText = "BACK TO ARCHIVE";
+        completeBtn.onclick = showArchive;
+      } else {
+        completeBtn.innerText = "COMPLETE";
+        completeBtn.onclick = completeToday;
+      }
+    }
+
+    function startFiveMinutes() {
+      let count = parseInt(localStorage.getItem('rooted_total_read_count') || "0", 10);
+      const index = Math.min(count, devotionals.length - 1);
+      renderDevotional(devotionals[index]);
+      showScreen('screen-devo');
+    }
+
+    function completeToday() {
+      const todayDate = new Date().toDateString();
+      localStorage.setItem('rooted_last_completed', todayDate);
+
+      let count = parseInt(localStorage.getItem('rooted_total_read_count') || "0", 10);
+      let completedIds = JSON.parse(localStorage.getItem('rooted_completed_ids') || "[]");
+
+      const index = Math.min(count, devotionals.length - 1);
+      const currentDevo = devotionals[index];
+
+      if (!completedIds.includes(currentDevo.id)) {
+        completedIds.push(currentDevo.id);
+        localStorage.setItem('rooted_completed_ids', JSON.stringify(completedIds));
+      }
+
+      localStorage.setItem('rooted_total_read_count', count + 1);
+
+      if (currentDevo.id === 90) {
+        showScreen('screen-milestone-90');
+      } else if (currentDevo.id === 100) {
+        showScreen('screen-milestone-100');
+      } else {
+        showScreen('screen-complete');
+      }
+    }
+
+    function skipAhead() {
+      startFiveMinutes();
+    }
+
+    function showArchive() {
+      const completedIds = JSON.parse(localStorage.getItem('rooted_completed_ids') || "[]");
+      const archiveContainer = document.getElementById('archive-list');
+      
+      if (completedIds.length === 0) {
+        archiveContainer.innerHTML = `<p style="color:var(--text-muted); padding: 1rem;">No past devotionals yet. Complete today's 5 minutes to begin your history!</p>`;
+      } else {
+        archiveContainer.innerHTML = completedIds.map(id => {
+          const devo = devotionals.find(d => d.id === id);
+          return `
+            <div class="archive-item" onclick="viewArchivedDevo(${devo.id})">
+              <div class="archive-day">DAY ${devo.id}</div>
+              <div class="archive-title">"${devo.scripture.substring(0, 45)}..."</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      showScreen('screen-archive');
+    }
+
+    function viewArchivedDevo(id) {
+      const devo = devotionals.find(d => d.id === id);
+      renderDevotional(devo, true);
+      showScreen('screen-devo');
+    }
+
+    function showScreen(screenId) {
+      ['screen-landing', 'screen-devo', 'screen-complete', 'screen-archive', 'screen-milestone-90', 'screen-milestone-100'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      document.getElementById(screenId).classList.remove('hidden');
+    }
+
+    init();
+  </script>
+</body>
+</html>
